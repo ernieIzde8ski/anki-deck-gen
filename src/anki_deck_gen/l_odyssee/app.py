@@ -103,7 +103,7 @@ def app():
     lockfile = prompt_for_updated_lockfile()
     logging.debug("Generating package")
     package = generate_package(
-        lockfile, name="L'Odyssée", seed="L'Odyssée by ernieIzde8ski"
+        lockfile, name="L'Odyssée (TTS Quebecois)", seed="L'Odyssée by ernieIzde8ski"
     )
     target = media("l_odyssee.apkg")
     logging.debug(f"Writing package to file: {target}")
