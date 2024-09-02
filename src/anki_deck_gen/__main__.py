@@ -1,3 +1,3 @@
-from .argument_parser import run
+from anki_deck_gen.app import app
 
-run()
+app()

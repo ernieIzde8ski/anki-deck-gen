@@ -33,7 +33,7 @@ classifiers = [
 ]
 dynamic = ["dependencies"]
 license = { file = "LICENSE" }
-scripts = { "anki-deck-gen" = "anki_deck_gen.argument_parser:run" }
+scripts = { "anki-deck-gen" = "anki_deck_gen.app:app" }
 [project.urls]
 Homepage = "https://github.com/ernieIzde8ski/anki-deck-gen"
 Issues =  "https://github.com/ernieIzde8ski/anki-deck-gen/issues"
