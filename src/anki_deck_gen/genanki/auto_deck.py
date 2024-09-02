@@ -11,7 +11,9 @@ DECK_ID_UPPER_BOUND = 1 << 31
 class AutoDeck(Deck):
     """A deck with a seeded random ID."""
 
-    def __init__(self, name: str, description: str = "", seed: str | None = None) -> None:
+    def __init__(
+        self, name: str, description: str = "", *, seed: str | None = None
+    ) -> None:
         """
         Creates an AutoDeck.
 

@@ -25,3 +25,4 @@ def set_lockfile(lockfile: Lockfile, /) -> None:
     data = LockfileAdapter.dump_json(lockfile, indent=2)
     with open(LOCKFILE_PATH, "wb") as file:
         _ = file.write(data)
+        _ = file.write(b"\n")
