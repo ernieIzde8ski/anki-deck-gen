@@ -7,7 +7,6 @@ __license__ = "MIT"
 __version__ = "0.1.0"
 __maintainer__ = "Ernest Izdebski"
 
-__all__ = ["add", "app"]
+__all__ = ["app"]
 
-from .add import add
 from .app import app
