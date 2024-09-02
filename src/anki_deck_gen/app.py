@@ -9,9 +9,9 @@ app = typer.Typer()
 
 @app.command()
 def l_odyssee():
-    from .l_odyssee import main
+    from .l_odyssee.app import app
 
-    main()
+    app()
 
 
 @app.command(name="add")

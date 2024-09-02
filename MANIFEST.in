@@ -1,2 +1,3 @@
 include src/*/py.typed
 include requirements.txt
+include media/

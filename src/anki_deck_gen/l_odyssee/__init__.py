@@ -1,5 +1,3 @@
-__all__ = ["main"]
+from .cached_note import CachedNote
 
-
-def main():
-    print("Hello, world")
+__all__ = ["CachedNote"]
