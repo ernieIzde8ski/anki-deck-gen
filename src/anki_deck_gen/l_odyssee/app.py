@@ -107,12 +107,12 @@ def generate_decks(
     decks: list[AutoDeck] = []
     media_files: list[Path] = []
 
-    for key, val in (lockfile.children or {}).items():
-        sub_name = f"{name}::{key}"
-        sub_seed = f"{seed}::{key.replace(":", ".")}"
+    for fp, lockfile in (lockfile.children or {}).items():
+        sub_name = f"{name}::{fp}"
+        sub_seed = f"{seed}::{fp.replace(":", ".")}"
 
         sub_decks, sub_media_files = generate_decks(
-            sub_name, sub_seed, val, relative_directory / key
+            sub_name, sub_seed, lockfile, relative_directory / fp
         )
 
         decks.extend(sub_decks)
@@ -120,14 +120,14 @@ def generate_decks(
 
     if lockfile.notes:
         deck = AutoDeck(name, seed=seed)
-        for key, val in lockfile.notes.items():
-            if val is None:
+        for fp, cached_note in lockfile.notes.items():
+            if cached_note is None:
                 continue
-            filename = f"{key}.mp3"
+            filename = f"{fp}.mp3"
             media_files.append(relative_directory / filename)
             note = Note(
                 model=REVERSED_WITH_MEDIA_IN_FRONT,
-                fields=[val.front or key, val.back, f"[sound:{filename}]"],
+                fields=[cached_note.front or fp, cached_note.back, f"[sound:{filename}]"],
                 guid=seeded_id(filename),
             )
             deck.add_note(note)

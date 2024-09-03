@@ -3,660 +3,228 @@
   "children": {
     "Chapter 1": {
       "notes": {
-        "dans son coeur": {
-          "back": "in his heart"
-        },
-        "qui erra si longtemps": {
-          "back": "who wandered for so long"
-        },
-        "Et il vit": {
-          "back": "And he lives"
-        },
-        "les cités de peuples": {
-          "back": "cities of people"
-        },
-        "la citadelle sacrée": {
-          "back": "the sacred citadel"
-        },
-        "leur esprit": {
-          "back": "their mind"
-        },
-        "après": {
-          "back": "after"
-        },
-        "qu'il eut renversé": {
-          "back": "that he was overthrown"
-        },
-        "cet homme subtil": {
-          "back": "this subtle man"
-        },
-        "et il connut": {
-          "back": "and he knew"
-        },
-        "Tous ceux": {
-          "back": "all those"
-        },
-        "la vénérable Nymphe Kalypsô": {
-          "back": "the venerable Nymph Kalypso"
-        },
-        "mais Odysseus restait seul": {
-          "back": "but Odysseus remained alone"
-        },
-        "même": {
-          "back": "even"
-        },
-        "il devait subir": {
-          "back": "he had to undergo"
-        },
-        "qui était toujours irrité": {
-          "back": "who was always irritated"
-        },
-        "en Ithakè": {
-          "back": "in Ithaca"
-        },
-        "Et ce dernier": {
-          "back": "And this last one"
-        },
-        "beaucoup de maux": {
-          "back": "many evils"
-        },
-        "contre son désir": {
-          "back": "against his desire"
-        },
-        "les Dieux le prenaient": {
-          "back": "the Gods took him"
-        },
-        "jusqu'à ce qu'il fût rentré": {
-          "back": "until he came back"
-        },
-        "l'heure du retour": {
-          "back": "return time"
-        },
-        "ils périrent par leur impiété": {
-          "back": "they perished through their impiety"
-        },
-        "sa demeure": {
-          "back": "his home"
-        },
-        "des combats": {
-          "back": "battles"
-        },
-        "la très-noble déesse": {
-          "back": "the most noble goddess"
-        },
-        "loin de son pays": {
-          "back": "far from his country"
-        },
-        "qui avaient évité": {
-          "back": "who had avoided"
-        },
-        "qu'il revît": {
-          "back": "that he might see again"
-        },
-        "échappés": {
-          "back": "escaped"
-        },
-        "Mais il ne les sauva point": {
-          "back": "But he did not save them"
-        },
-        "étaient rentrés": {
-          "back": "had returned"
-        },
-        "en pitié": {
-          "back": "in pity"
-        },
-        "excepté Poseidaôn": {
-          "back": "except Poseidon"
-        },
-        "le désirant pour mari": {
-          "back": "wanting him for a husband"
-        },
-        "contre le divin Odysseus": {
-          "back": "against the divine Odysseus"
-        },
-        "de la guerre": {
-          "back": "of war"
-        },
-        "les insensés!": {
-          "back": "the foolish!"
-        },
-        "dans ses grottes creuses": {
-          "back": "in its hollow caves"
-        },
-        "dans leurs demeures": {
-          "back": "in their homes"
-        },
-        "une partie de ces choses": {
-          "back": "some of these things"
-        },
-        "le déroulement des années": {
-          "back": "the course of the years"
-        },
-        "Déesse": {
-          "back": "Goddess"
-        },
-        "il endura": {
-          "back": "he endured"
-        },
-        "le retour de ses compagnons": {
-          "back": "the return of his companions"
-        },
-        "leur ravit": {
-          "back": "their delight"
-        },
+        "dans son coeur": "in his heart",
+        "qui erra si longtemps": "who wandered for so long",
+        "Et il vit": "And he lives",
+        "les cités de peuples": "cities of people",
+        "la citadelle sacrée": "the sacred citadel",
+        "leur esprit": "their mind",
+        "après": "after",
+        "qu'il eut renversé": "that he was overthrown",
+        "cet homme subtil": "this subtle man",
+        "et il connut": "and he knew",
+        "Tous ceux": "all those",
+        "la vénérable Nymphe Kalypsô": "the venerable Nymph Kalypso",
+        "mais Odysseus restait seul": "but Odysseus remained alone",
+        "même": "even",
+        "il devait subir": "he had to undergo",
+        "qui était toujours irrité": "who was always irritated",
+        "en Ithakè": "in Ithaca",
+        "Et ce dernier": "And this last one",
+        "beaucoup de maux": "many evils",
+        "contre son désir": "against his desire",
+        "les Dieux le prenaient": "the Gods took him",
+        "jusqu'à ce qu'il fût rentré": "until he came back",
+        "l'heure du retour": "return time",
+        "ils périrent par leur impiété": "they perished through their impiety",
+        "sa demeure": "his home",
+        "des combats": "battles",
+        "la très-noble déesse": "the most noble goddess",
+        "loin de son pays": "far from his country",
+        "qui avaient évité": "who had avoided",
+        "qu'il revît": "that he might see again",
+        "échappés": "escaped",
+        "Mais il ne les sauva point": "But he did not save them",
+        "étaient rentrés": "had returned",
+        "en pitié": "in pity",
+        "excepté Poseidaôn": "except Poseidon",
+        "le désirant pour mari": "wanting him for a husband",
+        "contre le divin Odysseus": "against the divine Odysseus",
+        "de la guerre": "of war",
+        "les insensés!": "the foolish!",
+        "dans ses grottes creuses": "in its hollow caves",
+        "dans leurs demeures": "in their homes",
+        "une partie de ces choses": "some of these things",
+        "le déroulement des années": "the course of the years",
+        "Déesse": "Goddess",
+        "il endura": "he endured",
+        "le retour de ses compagnons": "the return of his companions",
+        "leur ravit": "their delight",
         "de Hèlios Hypérionade": null,
-        "ayant": {
-          "back": "having"
-        },
-        "de la mer": {
-          "back": "from the sea"
-        },
-        "le retenait": {
-          "back": "held him back"
-        },
-        "mangé les boeufs": {
-          "back": "ate the beef"
-        },
-        "la noire mort": {
-          "back": "the black death"
-        },
-        "dans son pays": {
-          "back": "in his country"
-        },
-        "Et tous": {
-          "back": "And all"
-        },
-        "Et quand le temps vint": {
-          "back": "And when the time came"
-        },
-        "au milieu des siens": {
-          "back": "among his own people"
-        },
-        "pour sa propre vie": {
-          "back": "for his own life"
-        },
-        "sur la mer": {
-          "back": "on the sea"
-        },
-        "où les Dieux voulurent": {
-          "back": "where the Gods wanted"
-        },
-        "Et la Déesse Athènè": {
-          "back": "And the Goddess Athena"
-        },
-        "afin qu'il oublie Ithakè": {
-          "back": "so that he forgets Ithaca"
-        },
-        "et qui offrait": {
-          "back": "and who offered"
-        },
-        "qui secoue la terre": {
-          "back": "that shakes the earth"
-        },
-        "dressées entre": {
-          "back": "erected between"
-        },
-        "de taureaux et d'agneaux": {
-          "back": "of bulls and lambs"
-        },
-        "des hommes et des Dieux": {
-          "back": "of the men and Gods"
-        },
-        "la terre et l'Ouranos": {
-          "back": "earth and Ouranos"
-        },
-        "de ne point tuer Agamemnôn": {
-          "back": "not to kill Agamemnon"
-        },
-        "s'étant unie à Poseidaôn": {
-          "back": "having united with Poseidon"
-        },
-        "Herméias parla ainsi": {
-          "back": "Hermes spoke thus"
-        },
-        "ils accusent les Dieux": {
-          "back": "they accuse the Gods"
-        },
-        "de son pays": {
-          "back": "from his country"
-        },
-        "qui entoure la terre": {
-          "back": "which surrounds the earth"
-        },
-        "le Père des hommes": {
-          "back": "the father of men"
-        },
-        "il se réjouissait": {
-          "back": "he was rejoicing"
-        },
-        "qui": {
-          "back": "who; whom; which; that"
-        },
-        "Qu'il meure ainsi celui": {
-          "back": "Let him die like this"
-        },
-        "mais son conseil salutaire": {
-          "back": "but (his) salutary advice"
-        },
-        "pour une hécatombe": {
-          "back": "for a massacre"
-        },
-        "Et Zeus lui répondant,": {
-          "back": "And Zeus answered (her),"
-        },
-        "se rappelant dans son coeur": {
-          "back": "remembering in (his) heart"
-        },
-        "ils étaient réunis": {
-          "back": "they were gathered"
-        },
-        "du brave Odysseus": {
-          "back": "of the brave Odysseus"
-        },
-        "la fille dangereuse d'Atlas": {
-          "back": "the dangerous daughter of Atlas"
-        },
-        "n'est point touché": {
-          "back": "is not touched"
-        },
-        "Et ton coeur": {
-          "back": "In your heart"
-        },
-        "Ils disent que": {
-          "back": "They say that"
-        },
-        "Et Zeus parla ainsi": {
-          "back": "And Zeus spoke thus"
-        },
-        "il a tout expié": {
-          "back": "he atoned for everything"
-        },
-        "par Herméias": {
-          "back": "by Hermes"
-        },
-        "le malheureux!": {
-          "back": "the unfortunate!"
-        },
-        "maître de la mer sauvage": {
-          "back": "master of the wild sea"
-        },
-        "qui sont partagés": {
-          "back": "which are shared"
-        },
-        "retourne en sa demeure": {
-          "back": "returns to (sa) demeure"
-        },
-        "est constamment irrité": {
-          "back": "is constantly irritated"
-        },
-        "le plus de sacrifices": {
-          "back": "the most sacrifices"
-        },
-        "qui souffre depuis longtemps": {
-          "back": "who has been suffering for a long time"
-        },
-        "est au-dessus de": {
-          "back": "is above"
-        },
-        "regarde du côté": {
-          "back": "look to the side"
-        },
-        "le large Ouranos": {
-          "back": "the wide Ouranos"
-        },
-        "Mais mon coeur": {
-          "back": "But my heart"
-        },
-        "aux Dieux heureux": {
-          "back": "to the happy Gods"
-        },
-        "le Kyklôps": {
-          "back": "the Cyclops"
-        },
-        "s'il plaît": {
-          "back": "please"
-        },
-        "celui-ci du moins": {
-          "back": "this one at least"
-        },
-        "voici qu'Aigisthos": {
-          "back": "here is Aegisthus"
-        },
-        "que l'Atréide Orestès se vengeât": {
-          "back": "that the Atreides Orestes should take revenge"
-        },
-        "de peur que": {
-          "back": "for fear that"
-        },
-        "Se souvenant": {
-          "back": "Remembering"
-        },
-        "qui amasse les nuées": {
-          "back": "who gathers the clouds"
-        },
-        "et qui porte": {
-          "back": "and who carries"
-        },
-        "les profondeurs de la mer": {
-          "back": "the depths of the sea"
-        },
-        "qu'Odysseus accomplissait": {
-          "back": "that Odysseus accomplished"
-        },
-        "a tué ce dernier": {
-          "back": "killed the latter"
-        },
-        "dans une île": {
-          "back": "in an island"
-        },
-        "assis à ce repas": {
-          "back": "sitting at this meal"
-        },
-        "qu'il avait tué": {
-          "back": "that he had killed"
-        },
-        "que le sage Odysseus": {
-          "back": "that the wise Odysseus"
-        },
-        "à cause de": {
-          "back": "because of; due to"
-        },
-        "l'illustre Orestès": {
-          "back": "the illustrious Orestes"
-        },
-        "d'une mort juste": {
-          "back": "of a just death"
-        },
-        "mais il désire": {
-          "back": "but he desires"
-        },
-        "seuls, ils aggravent": {
-          "back": "alone, they make it worse"
-        },
-        "des Kyklôpes": {
-          "back": "of the Cyclopes"
-        },
-        "assurons son retour": {
-          "back": "let's ensure (his) return"
-        },
-        "et il souhaite de mourir": {
-          "back": "and he wishes to die"
-        },
-        "il commença": {
-          "back": "he began"
-        },
-        "le vigilant tueur": {
-          "back": "the vigilant killer"
-        },
-        "l'enfanta": {
-          "back": "gave birth to him"
-        },
+        "ayant": "having",
+        "de la mer": "from the sea",
+        "le retenait": "held him back",
+        "mangé les boeufs": "ate the beef",
+        "la noire mort": "the black death",
+        "dans son pays": "in his country",
+        "Et tous": "And all",
+        "Et quand le temps vint": "And when the time came",
+        "au milieu des siens": "among his own people",
+        "pour sa propre vie": "for his own life",
+        "sur la mer": "on the sea",
+        "où les Dieux voulurent": "where the Gods wanted",
+        "Et la Déesse Athènè": "And the Goddess Athena",
+        "afin qu'il oublie Ithakè": "so that he forgets Ithaca",
+        "et qui offrait": "and who offered",
+        "qui secoue la terre": "that shakes the earth",
+        "dressées entre": "erected between",
+        "de taureaux et d'agneaux": "of bulls and lambs",
+        "des hommes et des Dieux": "of the men and Gods",
+        "la terre et l'Ouranos": "earth and Ouranos",
+        "de ne point tuer Agamemnôn": "not to kill Agamemnon",
+        "s'étant unie à Poseidaôn": "having united with Poseidon",
+        "Herméias parla ainsi": "Hermes spoke thus",
+        "ils accusent les Dieux": "they accuse the Gods",
+        "de son pays": "from his country",
+        "qui entoure la terre": "which surrounds the earth",
+        "le Père des hommes": "the father of men",
+        "il se réjouissait": "he was rejoicing",
+        "qui": "who; whom; which; that",
+        "Qu'il meure ainsi celui": "Let him die like this",
+        "mais son conseil salutaire": "but (his) salutary advice",
+        "pour une hécatombe": "for a massacre",
+        "Et Zeus lui répondant,": "And Zeus answered (her),",
+        "se rappelant dans son coeur": "remembering in (his) heart",
+        "ils étaient réunis": "they were gathered",
+        "du brave Odysseus": "of the brave Odysseus",
+        "la fille dangereuse d'Atlas": "the dangerous daughter of Atlas",
+        "n'est point touché": "is not touched",
+        "Et ton coeur": "In your heart",
+        "Ils disent que": "They say that",
+        "Et Zeus parla ainsi": "And Zeus spoke thus",
+        "il a tout expié": "he atoned for everything",
+        "par Herméias": "by Hermes",
+        "le malheureux!": "the unfortunate!",
+        "maître de la mer sauvage": "master of the wild sea",
+        "qui sont partagés": "which are shared",
+        "retourne en sa demeure": "returns to (sa) demeure",
+        "est constamment irrité": "is constantly irritated",
+        "le plus de sacrifices": "the most sacrifices",
+        "qui souffre depuis longtemps": "who has been suffering for a long time",
+        "est au-dessus de": "is above",
+        "regarde du côté": "look to the side",
+        "le large Ouranos": "the wide Ouranos",
+        "Mais mon coeur": "But my heart",
+        "aux Dieux heureux": "to the happy Gods",
+        "le Kyklôps": "the Cyclops",
+        "s'il plaît": "please",
+        "celui-ci du moins": "this one at least",
+        "voici qu'Aigisthos": "here is Aegisthus",
+        "que l'Atréide Orestès se vengeât": "that the Atreides Orestes should take revenge",
+        "de peur que": "for fear that",
+        "Se souvenant": "Remembering",
+        "qui amasse les nuées": "who gathers the clouds",
+        "et qui porte": "and who carries",
+        "les profondeurs de la mer": "the depths of the sea",
+        "qu'Odysseus accomplissait": "that Odysseus accomplished",
+        "a tué ce dernier": "killed the latter",
+        "dans une île": "in an island",
+        "assis à ce repas": "sitting at this meal",
+        "qu'il avait tué": "that he had killed",
+        "que le sage Odysseus": "that the wise Odysseus",
+        "à cause de": "because of; due to",
+        "l'illustre Orestès": "the illustrious Orestes",
+        "d'une mort juste": "of a just death",
+        "mais il désire": "but he desires",
+        "seuls, ils aggravent": "alone, they make it worse",
+        "des Kyklôpes": "of the Cyclopes",
+        "assurons son retour": "let's ensure (his) return",
+        "et il souhaite de mourir": "and he wishes to die",
+        "il commença": "he began",
+        "le vigilant tueur": "the vigilant killer",
+        "l'enfanta": "gave birth to him",
         "pour toi auprès": null,
-        "leur destinée": {
-          "back": "their destiny"
-        },
-        "viennent de nous": {
-          "back": "come from us"
-        },
-        "car il ne pourra rien": {
-          "back": "because he won't be able to do anything"
-        },
-        "la femme de l'Atréide": {
-          "back": "Atreus' wife"
-        },
-        "d'entre tes dents": {
-          "back": "from between your teeth"
-        },
-        "il dit ces paroles": {
-          "back": "he said these words"
-        },
-        "ayant grandi": {
-          "back": "having grown up"
-        },
-        "sa femme": {
-          "back": "(his) wife"
-        },
-        "de ne point désirer": {
-          "back": "not to desire"
-        },
-        "Et comme": {
-          "back": "And as"
-        },
-        "Kronide": {
-          "back": "Chronos"
-        },
-        "Ô notre Père": {
-          "back": "O our Father"
-        },
-        "qui sommes ici": {
-          "back": "who are here"
-        },
-        "par leur démence": {
-          "back": "by their madness"
-        },
-        "Mon enfant": {
-          "back": "My child"
-        },
-        "les Aithiopiens": {
-          "back": "the Ethiopians"
-        },
-        "lui répondit": {
-          "back": "answered him"
-        },
-        "de cela": {
-          "back": "of this"
-        },
-        "Polyphèmos tel qu'un Dieu": {
-          "back": "Polyphemos as a God"
-        },
-        "les autres Dieux": {
-          "back": "the other Gods"
-        },
-        "sachant quelle": {
-          "back": "knowing what"
-        },
-        "dans cette île": {
-          "back": "in this island"
-        },
-        "n'a point persuadé": {
-          "back": "did not persuade"
-        },
-        "plantée d'arbres": {
-          "back": "planted with trees"
-        },
-        "habite une Déesse": {
-          "back": "lives a Goddess"
-        },
-        "l'irréprochable Aigisthos": {
-          "back": "the irreproachable Aegisthus"
-        },
+        "leur destinée": "their destiny",
+        "viennent de nous": "come from us",
+        "car il ne pourra rien": "because he won't be able to do anything",
+        "la femme de l'Atréide": "Atreus' wife",
+        "d'entre tes dents": "from between your teeth",
+        "il dit ces paroles": "he said these words",
+        "ayant grandi": "having grown up",
+        "sa femme": "(his) wife",
+        "de ne point désirer": "not to desire",
+        "Et comme": "And as",
+        "Kronide": "Chronos",
+        "Ô notre Père": "O our Father",
+        "qui sommes ici": "who are here",
+        "par leur démence": "by their madness",
+        "Mon enfant": "My child",
+        "les Aithiopiens": "the Ethiopians",
+        "lui répondit": "answered him",
+        "de cela": "of this",
+        "Polyphèmos tel qu'un Dieu": "Polyphemos as a God",
+        "les autres Dieux": "the other Gods",
+        "sachant quelle": "knowing what",
+        "dans cette île": "in this island",
+        "n'a point persuadé": "did not persuade",
+        "plantée d'arbres": "planted with trees",
+        "habite une Déesse": "lives a Goddess",
+        "l'irréprochable Aigisthos": "the irreproachable Aegisthus",
         "où en est le centre": {
           "front": "où en est le centre.",
           "back": "where the center is."
         },
-        "des nefs Argiennes": {
-          "back": "from Argive ships"
-        },
-        "car nous l'avions prévenu": {
-          "back": "because we warned him"
-        },
-        "et désirant revoir son pays": {
-          "back": "and wanting to see (his) country again"
-        },
-        "ne tuant point Odysseus": {
-          "back": "not killing Odysseus"
-        },
-        "aux Immortels": {
-          "back": "to the Immortals; of the Immortals"
-        },
-        "Comment pourrais-je oublier": {
-          "back": "How could I forget"
-        },
-        "l'esprit d'Aigisthos": {
-          "back": "the mind of Aegisthus"
-        },
-        "celui-ci": {
-          "back": "this one"
-        },
-        "C'est pour cela que": {
-          "back": "That's why"
-        },
-        "par l'intelligence": {
-          "back": "by intelligence"
-        },
-        "de molles et douces paroles": {
-          "back": "of soft and sweet words"
-        },
-        "Maintenant": {
-          "back": "now; currently"
-        },
-        "Il oubliera sa colère": {
-          "back": "He will forget his anger"
-        },
-        "La Nymphe Thoôsa": {
-          "back": "The Nymph Thoosa"
-        },
-        "au souvenir": {
-          "back": "in memory"
-        },
-        "dont l'un": {
-          "back": "one of which"
-        },
-        "et l'autre au levant": {
-          "back": "and the other to the east"
-        },
-        "Et sa fille": {
-          "back": "And (his) daughter"
-        },
-        "devant la grande Troiè": {
-          "back": "faced with the great Troy"
-        },
-        "et qu'elle flatte toujours": {
-          "back": "and that she always flatters"
-        },
-        "Elle retient ce malheureux": {
-          "back": "She holds this unfortunate man back"
-        },
-        "qui agira de même": {
-          "back": "who will act the same"
-        },
-        "tous les hommes": {
-          "back": "all men"
-        },
-        "revoir la fumée": {
-          "back": "see the smoke again"
-        },
-        "au milieu de la mer": {
-          "back": "in the middle of the sea"
-        },
-        "en deux peuples": {
-          "back": "in two peoples"
-        },
-        "le plus haut des Rois": {
-          "back": "the highest of kings"
-        },
-        "Et le Dieu y était allé": {
-          "back": "And the God had gone there"
-        },
-        "lui qui connaît": {
-          "back": "he who knows"
-        },
-        "il a épousé": {
-          "back": "he married"
-        },
-        "combien les hommes": {
-          "back": "how many men"
-        },
-        "qui habitent au loin": {
-          "back": "who live far away"
-        },
-        "le plus fort": {
-          "back": "the strongest"
-        },
-        "le divin Odysseus": {
-          "back": "the divine Odysseus"
-        },
-        "de leur parler": {
-          "back": "to talk to them"
-        },
-        "si irrité contre lui": {
-          "back": "so angry with him"
-        },
-        "quelle parole s'est échappée": {
-          "back": "what word escaped"
-        },
-        "qui se lamente": {
-          "back": "who laments"
-        },
-        "loin des siens": {
-          "back": "far from his own"
-        },
-        "a été frappé": {
-          "back": "was hit"
-        },
-        "leurs maux": {
-          "back": "their troubles; their pains; their evils"
-        },
-        "et qui habitent": {
-          "back": "and who live [in]"
-        },
-        "contre le destin": {
-          "back": "against destiny"
-        },
-        "dans la demeure royale": {
-          "back": "in the royal residence"
-        },
-        "les hautes colonnes": {
-          "back": "the high columns"
-        },
-        "est déchiré": {
-          "back": "is torn"
-        },
-        "par les sacrifices": {
-          "back": "by sacrifices"
-        },
-        "aux Dieux qui vivent toujours": {
-          "back": "to the Gods who still live"
-        },
-        "au couchant": {
-          "back": "at sunset"
-        },
-        "Poseidaôn était allé chez": {
-          "back": "Poseidon had gone to"
-        },
-        "serait sa mort terrible": {
-          "back": "would be his terrible death"
-        },
-        "Et Zeus lui répondant": {
-          "back": "And Zeus answered (her)"
-        },
-        "Zeus, pourquoi donc es-tu": {
-          "back": "Zeus, why are you"
-        },
-        "la Déesse aux yeux clairs": {
-          "back": "the clear-eyed goddess"
-        },
-        "qu'Odysseus a aveuglé": {
-          "back": "that Odysseus blinded"
-        },
-        "Mais Poseidaôn": {
-          "back": "But Poseidon"
-        },
-        "fille de Phorkyn": {
-          "back": "Phorcys' daughter"
-        },
-        "aux yeux clairs": {
-          "back": "with light eyes"
-        },
-        "de Zeus Olympien": {
-          "back": "from Olympian Zeus"
-        },
-        "Elle lui répondit": {
-          "back": "She answered (him)"
-        },
-        "le contraint d'errer": {
-          "back": "forced him to wander"
-        }
+        "des nefs Argiennes": "from Argive ships",
+        "car nous l'avions prévenu": "because we warned him",
+        "et désirant revoir son pays": "and wanting to see (his) country again",
+        "ne tuant point Odysseus": "not killing Odysseus",
+        "aux Immortels": "to the Immortals; of the Immortals",
+        "Comment pourrais-je oublier": "How could I forget",
+        "l'esprit d'Aigisthos": "the mind of Aegisthus",
+        "celui-ci": "this one",
+        "C'est pour cela que": "That's why",
+        "par l'intelligence": "by intelligence",
+        "de molles et douces paroles": "of soft and sweet words",
+        "Maintenant": "now; currently",
+        "Il oubliera sa colère": "He will forget his anger",
+        "La Nymphe Thoôsa": "The Nymph Thoosa",
+        "au souvenir": "in memory",
+        "dont l'un": "one of which",
+        "et l'autre au levant": "and the other to the east",
+        "Et sa fille": "And (his) daughter",
+        "devant la grande Troiè": "faced with the great Troy",
+        "et qu'elle flatte toujours": "and that she always flatters",
+        "Elle retient ce malheureux": "She holds this unfortunate man back",
+        "qui agira de même": "who will act the same",
+        "tous les hommes": "all men",
+        "revoir la fumée": "see the smoke again",
+        "au milieu de la mer": "in the middle of the sea",
+        "en deux peuples": "in two peoples",
+        "le plus haut des Rois": "the highest of kings",
+        "Et le Dieu y était allé": "And the God had gone there",
+        "lui qui connaît": "he who knows",
+        "il a épousé": "he married",
+        "combien les hommes": "how many men",
+        "qui habitent au loin": "who live far away",
+        "le plus fort": "the strongest",
+        "le divin Odysseus": "the divine Odysseus",
+        "de leur parler": "to talk to them",
+        "si irrité contre lui": "so angry with him",
+        "quelle parole s'est échappée": "what word escaped",
+        "qui se lamente": "who laments",
+        "loin des siens": "far from his own",
+        "a été frappé": "was hit",
+        "leurs maux": "their troubles; their pains; their evils",
+        "et qui habitent": "and who live [in]",
+        "contre le destin": "against destiny",
+        "dans la demeure royale": "in the royal residence",
+        "les hautes colonnes": "the high columns",
+        "est déchiré": "is torn",
+        "par les sacrifices": "by sacrifices",
+        "aux Dieux qui vivent toujours": "to the Gods who still live",
+        "au couchant": "at sunset",
+        "Poseidaôn était allé chez": "Poseidon had gone to",
+        "serait sa mort terrible": "would be his terrible death",
+        "Et Zeus lui répondant": "And Zeus answered (her)",
+        "Zeus, pourquoi donc es-tu": "Zeus, why are you",
+        "la Déesse aux yeux clairs": "the clear-eyed goddess",
+        "qu'Odysseus a aveuglé": "that Odysseus blinded",
+        "Mais Poseidaôn": "But Poseidon",
+        "fille de Phorkyn": "Phorcys' daughter",
+        "aux yeux clairs": "with light eyes",
+        "de Zeus Olympien": "from Olympian Zeus",
+        "Elle lui répondit": "She answered (him)",
+        "le contraint d'errer": "forced him to wander"
       },
       "children": {}
     },
