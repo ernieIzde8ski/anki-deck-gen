@@ -1,42 +1,46 @@
 {
-  "dans son coeur": {
-    "front": null,
-    "back": "in his heart"
-  },
-  "qui erra si longtemps": {
-    "front": null,
-    "back": "who wandered for so long"
-  },
-  "Et il vit": {
-    "front": null,
-    "back": "And he lives"
-  },
-  "les cités de peuples": {
-    "front": null,
-    "back": "cities of people"
-  },
-  "la citadelle sacrée": {
-    "front": null,
-    "back": "the sacred citadel"
-  },
-  "leur esprit": {
-    "front": null,
-    "back": "their mind"
-  },
-  "après": {
-    "front": null,
-    "back": "after"
-  },
-  "qu'il eut renversé": {
-    "front": null,
-    "back": "that he was overthrown"
-  },
-  "cet homme subtil": {
-    "front": null,
-    "back": "this subtle man"
-  },
-  "et il connut": {
-    "front": null,
-    "back": "and he knew"
+  "notes": {},
+  "children": {
+    "Chapter 1": {
+      "notes": {
+        "dans son coeur": {
+          "back": "in his heart"
+        },
+        "qui erra si longtemps": {
+          "back": "who wandered for so long"
+        },
+        "Et il vit": {
+          "back": "And he lives"
+        },
+        "les cités de peuples": {
+          "back": "cities of people"
+        },
+        "la citadelle sacrée": {
+          "back": "the sacred citadel"
+        },
+        "leur esprit": {
+          "back": "their mind"
+        },
+        "après": {
+          "back": "after"
+        },
+        "qu'il eut renversé": {
+          "back": "that he was overthrown"
+        },
+        "cet homme subtil": {
+          "back": "this subtle man"
+        },
+        "et il connut": {
+          "back": "and he knew"
+        }
+      },
+      "children": {}
+    },
+    "Chapter 2": {
+      "notes": {
+        "Dummy File": null
+      },
+      "children": {}
+    }
   }
 }
