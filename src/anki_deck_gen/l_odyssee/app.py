@@ -107,12 +107,12 @@ def generate_decks(
     decks: list[AutoDeck] = []
     media_files: list[Path] = []
 
-    for fp, lockfile in (lockfile.children or {}).items():
+    for fp, sub_lockfile in (lockfile.children or {}).items():
         sub_name = f"{name}::{fp}"
         sub_seed = f"{seed}::{fp.replace(":", ".")}"
 
         sub_decks, sub_media_files = generate_decks(
-            sub_name, sub_seed, lockfile, relative_directory / fp
+            sub_name, sub_seed, sub_lockfile, relative_directory / fp
         )
 
         decks.extend(sub_decks)

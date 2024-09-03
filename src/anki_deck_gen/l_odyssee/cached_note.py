@@ -1,4 +1,4 @@
-from typing import Literal, Self, TypeVar
+from typing import Literal, TypeVar
 
 from pydantic import BaseModel, ConfigDict, model_serializer, model_validator
 
@@ -20,10 +20,10 @@ class CachedNote(BaseModel):
 
     @model_validator(mode="before")
     @classmethod
-    def convert_from_string(cls, v: T) -> T | Self:
-        if isinstance(v, str):
-            return cls(front=None, back=v)
-        return v
+    def convert_from_string(cls, data: T) -> T | dict[str, str | None]:
+        if isinstance(data, str):
+            return {"front": None, "back": data}
+        return data
 
     @model_serializer
     def ser_model(self) -> str | dict[Literal["front", "back"], str]:
