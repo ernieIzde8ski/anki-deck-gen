@@ -55,8 +55,14 @@ def prompt_update_lockfile(old: Lockfile, relative_directory: Path) -> Lockfile:
             if file_name in old.notes:
                 new.notes[file_name] = old.notes[file_name]
             else:
-                print(f'Translate phrase: "{file_name}"')
-                note = CachedNote(front=None, back=required_input("> "))
+                print(f"Front: {file_name}")
+                back = required_input("Back:  ")
+                if back == "NULL":
+                    note = None
+                    logging.debug("Skipping file.")
+                else:
+                    note = CachedNote(front=None, back=back)
+                print()
                 new.notes[file_name] = old.notes[file_name] = note
 
     return new
@@ -73,9 +79,17 @@ def prompt_for_updated_lockfile() -> Lockfile:
     """Lockfile possibly containing deleted items."""
 
     try:
+        print("Updating lockfile with new audio files.")
+        print("Shortcuts:")
+        print("\t<C-D>: save and quit")
+        print("\t<C-C>: quit without saving")
+        print("\tinput 'NULL': ignore current note")
+        print("\tinput other: put text on back of note")
+        print()
         new_lockfile = prompt_update_lockfile(lockfile, AUDIO_DIRECTORY)
         """Lockfile only with the mp3s that definitely exist."""
     except EOFError:
+        print()
         logging.debug("Saving lockfile")
         lockfile.save_to_file()
         raise
