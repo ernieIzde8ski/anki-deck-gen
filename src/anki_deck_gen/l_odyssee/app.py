@@ -1,14 +1,10 @@
 import logging
 from pathlib import Path
 
-from genanki.note import Note
-from genanki.package import Package
-
-from anki_deck_gen.genanki_ext import seeded_id
-from anki_deck_gen.genanki_ext.models import REVERSED_WITH_MEDIA_IN_FRONT
+from genanki import Deck, Note, Package
 
 from ..dirs import media
-from ..genanki_ext import AutoDeck
+from ..genanki_ext import REVERSED_WITH_MEDIA_IN_FRONT
 from .cached_note import CachedNote
 from .lockfile import Lockfile
 
@@ -102,24 +98,22 @@ def prompt_for_updated_lockfile() -> Lockfile:
 
 
 def generate_decks(
-    name: str, seed: str, lockfile: Lockfile, relative_directory: Path
-) -> tuple[list[AutoDeck], list[Path]]:
-    decks: list[AutoDeck] = []
+    name: str, lockfile: Lockfile, relative_directory: Path
+) -> tuple[list[Deck], list[Path]]:
+    decks: list[Deck] = []
     media_files: list[Path] = []
 
     for fp, sub_lockfile in (lockfile.children or {}).items():
-        sub_name = f"{name}::{fp}"
-        sub_seed = f"{seed}::{fp.replace(":", ".")}"
-
         sub_decks, sub_media_files = generate_decks(
-            sub_name, sub_seed, sub_lockfile, relative_directory / fp
+            f"{name}::{fp}", sub_lockfile, relative_directory / fp
         )
 
         decks.extend(sub_decks)
         media_files.extend(sub_media_files)
 
     if lockfile.notes:
-        deck = AutoDeck(name, seed=seed)
+        deck = Deck(lockfile.deck_id, name)
+        deck.add_model(REVERSED_WITH_MEDIA_IN_FRONT)
         for fp, cached_note in lockfile.notes.items():
             if cached_note is None:
                 continue
@@ -128,7 +122,6 @@ def generate_decks(
             note = Note(
                 model=REVERSED_WITH_MEDIA_IN_FRONT,
                 fields=[cached_note.front or fp, cached_note.back, f"[sound:{filename}]"],
-                guid=seeded_id(filename),
             )
             deck.add_note(note)
         decks.append(deck)
@@ -144,7 +137,6 @@ def app():
     logging.debug("Generating package")
     decks, media_files = generate_decks(
         name="L'Odyssée (TTS Quebecois)",
-        seed="L'Odyssée by ernieIzde8ski",
         lockfile=lockfile,
         relative_directory=AUDIO_DIRECTORY,
     )

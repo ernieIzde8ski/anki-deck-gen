@@ -6,6 +6,7 @@ import pydantic
 from pydantic import BaseModel
 
 from ..dirs import media
+from ..genanki_ext import random_id
 from .cached_note import CachedNote
 
 __all__ = ["Lockfile", "LOCKFILE_PATH"]
@@ -15,8 +16,9 @@ LOCKFILE_PATH = media("l_odyssee", "lockfile.json")
 
 
 class Lockfile(BaseModel):
-    notes: dict[str, CachedNote | None] = pydantic.Field(default_factory=dict)
     children: dict[str, Lockfile] = pydantic.Field(default_factory=dict)
+    notes: dict[str, CachedNote | None] = pydantic.Field(default_factory=dict)
+    maybe_deck_id: int | None = pydantic.Field(default=None, alias="deck-id")
 
     @classmethod
     def read_from_file(cls) -> Self:
@@ -27,7 +29,7 @@ class Lockfile(BaseModel):
 
     def save_to_file(self) -> None:
         """Writes data to the JSON lockfile."""
-        data = self.model_dump_json(indent=2, exclude_none=True)
+        data = self.model_dump_json(indent=2, exclude_defaults=True, by_alias=True)
         with open(LOCKFILE_PATH, "w+") as file:
             _ = file.write(data)
             _ = file.write("\n")
@@ -38,3 +40,9 @@ class Lockfile(BaseModel):
             if not self.children:
                 self.children = {}
             self.children.update(other.children)
+
+    @property
+    def deck_id(self) -> int:
+        if self.maybe_deck_id is None:
+            self.maybe_deck_id = random_id()
+        return self.maybe_deck_id

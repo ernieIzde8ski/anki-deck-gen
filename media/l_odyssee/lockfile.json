@@ -1,5 +1,4 @@
 {
-  "notes": {},
   "children": {
     "Chapter 1": {
       "notes": {
@@ -226,13 +225,13 @@
         "Elle lui répondit": "She answered (him)",
         "le contraint d'errer": "forced him to wander"
       },
-      "children": {}
+      "deck-id": 1198430006
     },
     "Chapter 2": {
       "notes": {
         "Dummy File": null
       },
-      "children": {}
+      "deck-id": 1149880623
     }
   }
 }

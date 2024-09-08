@@ -1,8 +1,7 @@
 from genanki.model import Model
 
-from .auto_model import AutoModel
+__all__ = ["REVERSED_WITH_MEDIA_IN_FRONT", "CLOZE_WITH_ID"]
 
-__all__ = ["REVERSED_WITH_MEDIA_IN_FRONT"]
 REVERSED_WITH_MEDIA_IN_FRONT = Model(
     1760852270,
     "Basic (and reversed card) (genanki)",
@@ -31,7 +30,7 @@ REVERSED_WITH_MEDIA_IN_FRONT = Model(
 CLOZE_WITH_ID = Model(
     2044012515,
     "Cloze (anki-deck-gen)",
-    model_type=AutoModel.CLOZE,
+    model_type=Model.CLOZE,
     fields=[
         {"name": "Deck ID"},
         {"name": "Text", "font": "Arial"},

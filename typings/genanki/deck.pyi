@@ -11,6 +11,11 @@ from genanki.model import Model
 from genanki.note import Note
 
 class Deck:
+    deck_id: int | None
+    name: str | None
+    description: str
+    notes: list[Note]
+
     def __init__(
         self, deck_id: int | None = None, name: str | None = None, description: str = ""
     ) -> None: ...
