@@ -29,10 +29,10 @@ class Note:
     def __init__(
         self,
         model: Model = ...,
-        fields=...,
+        fields: list[str] | None = ...,
         sort_field=...,
         tags: list[str] = ...,
-        guid=...,
+        guid: int | str = ...,
         due: int = ...,
     ) -> None: ...
     @property

@@ -5,7 +5,7 @@ from typing import Self
 import pydantic
 from pydantic import BaseModel
 
-from ..media import media
+from ..dirs import media
 from .cached_note import CachedNote
 
 __all__ = ["Lockfile", "LOCKFILE_PATH"]

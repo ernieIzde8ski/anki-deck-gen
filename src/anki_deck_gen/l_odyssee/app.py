@@ -4,11 +4,11 @@ from pathlib import Path
 from genanki.note import Note
 from genanki.package import Package
 
-from anki_deck_gen.genanki import seeded_id
-from anki_deck_gen.genanki.models import REVERSED_WITH_MEDIA_IN_FRONT
+from anki_deck_gen.genanki_ext import seeded_id
+from anki_deck_gen.genanki_ext.models import REVERSED_WITH_MEDIA_IN_FRONT
 
-from ..genanki import AutoDeck
-from ..media import media
+from ..dirs import media
+from ..genanki_ext import AutoDeck
 from .cached_note import CachedNote
 from .lockfile import Lockfile
 
