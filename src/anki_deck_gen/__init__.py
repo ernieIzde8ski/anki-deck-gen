@@ -13,15 +13,21 @@ __all__ = [
     "app",
     "AsciiData",
     "generate_deck",
-    "app",
     "required_input",
     "CachedNote",
     "Lockfile",
     "LOCKFILE_PATH",
+    "generate_package",
 ]
 
 from .app import app
 from .ascii_codes import AsciiData, generate_deck
-from .l_odyssee import app, required_input, CachedNote, Lockfile, LOCKFILE_PATH
+from .l_odyssee import (
+    required_input,
+    CachedNote,
+    Lockfile,
+    LOCKFILE_PATH,
+    generate_package,
+)
 
 ### END GEN-INIT TEMPLATE ###

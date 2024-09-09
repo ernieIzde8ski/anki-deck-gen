@@ -10,7 +10,7 @@ from .cached_note import CachedNote
 from .lockfile import Lockfile
 from .required_input import required_input
 
-__all__ = ["app"]
+__all__ = ["generate_package"]
 
 AUDIO_DIRECTORY = media("l_odyssee", "audio")
 
@@ -108,7 +108,7 @@ def generate_decks(
     return (decks, media_files)
 
 
-def app():
+def generate_package() -> None:
     logging.basicConfig(level=logging.DEBUG)
 
     lockfile = prompt_for_updated_lockfile()
