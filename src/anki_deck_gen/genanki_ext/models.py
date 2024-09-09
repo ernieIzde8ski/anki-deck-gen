@@ -13,8 +13,8 @@ REVERSED_WITH_MEDIA_IN_FRONT = Model(
     templates=[
         {
             "name": "Card 1",
-            "qfmt": "{{MediaFile}}<br>{{Front}}",
-            "afmt": "{{FrontSide}}\n\n<hr id=answer>\n\n{{Back}}",
+            "qfmt": "{{Front}}<br><br>{{MediaFile}}",
+            "afmt": "{{Back}}\n\n<hr id=answer>\n\n{{FrontSide}}",
         },
         {
             "name": "Card 2",
