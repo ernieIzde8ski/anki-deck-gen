@@ -3,7 +3,7 @@ from pathlib import Path
 
 from genanki import Deck, Note, Package
 
-from ..dirs import media
+from ..dirs import media, target
 from ..genanki_ext import REVERSED_WITH_MEDIA_IN_FRONT
 from .cached_note import CachedNote
 from .lockfile import Lockfile
@@ -120,6 +120,6 @@ def app():
     )
     package = Package(decks, media_files=media_files)
 
-    target = media("l_odyssee.apkg")
-    logging.debug(f"Writing package to file: {target}")
-    package.write_to_file(target)
+    package_target = target("l_odyssee.apkg")
+    package.write_to_file(package_target)
+    logging.debug(f"Wrote package to file: {package_target}")
