@@ -7,33 +7,11 @@ from ..dirs import media
 from ..genanki_ext import REVERSED_WITH_MEDIA_IN_FRONT
 from .cached_note import CachedNote
 from .lockfile import Lockfile
+from .required_input import required_input
 
 __all__ = ["app"]
 
 AUDIO_DIRECTORY = media("l_odyssee", "audio")
-
-
-# don't want to use `stdin.read`, I like this implementation a bit more
-def required_input(prompt: str = "") -> str:
-    """Get input. Does not return an empty string."""
-    res = ""
-    while True:
-        res += input(prompt).strip()
-        if not res:
-            continue
-
-        rev = reversed(res)
-        backslash_count = 0
-        for c in rev:
-            if c == "\\":
-                backslash_count += 1
-            else:
-                break
-
-        if backslash_count % 2 == 0:
-            return res
-        else:
-            res = res[: len(res) - 1].rstrip() + "\n"
 
 
 def prompt_update_lockfile(old: Lockfile, relative_directory: Path) -> Lockfile:
@@ -77,13 +55,7 @@ def prompt_for_updated_lockfile() -> Lockfile:
     """Lockfile possibly containing deleted items."""
 
     try:
-        print("Updating lockfile with new audio files.")
-        print("Shortcuts:")
-        print("\t<C-D>: save and quit")
-        print("\t<C-C>: quit without saving")
-        print("\tinput 'NULL': ignore current note")
-        print("\tinput other: put text on back of note")
-        print()
+        logging.debug("Ensuring lockfile is up to date.")
         new_lockfile = prompt_update_lockfile(lockfile, AUDIO_DIRECTORY)
         """Lockfile only with the mp3s that definitely exist."""
     except EOFError:
@@ -92,9 +64,13 @@ def prompt_for_updated_lockfile() -> Lockfile:
         lockfile.save_to_file()
         raise
 
-    # TODO: hold some kind of flag and *don't* save when there are no changes
-    logging.debug("Saving lockfile")
-    lockfile.save_to_file()
+    # if the user was prompted,
+    # then we can say something pro8a8ly changed
+    if required_input.is_notified:
+        logging.debug("Updating lockfile")
+        lockfile.save_to_file()
+    else:
+        logging.debug("No new entries for lockfile")
     # returning only the lockfile filtered by existing media
     return new_lockfile
 
