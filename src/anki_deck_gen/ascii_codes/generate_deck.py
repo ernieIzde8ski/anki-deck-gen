@@ -1,13 +1,10 @@
 from sys import stderr
 
-from genanki import Note
-from genanki.builtin_models import CLOZE_MODEL
-from genanki.deck import Deck
+from genanki import Deck, Note
 
-from anki_deck_gen.dirs import TARGET
-from anki_deck_gen.genanki_ext import CLOZE_WITH_ID, xml_wrap
+from ankidg_core import TARGET
+from genanki_ext import CLOZE_WITH_ID, cloze, html_escape, xml_wrap
 
-from ..genanki_ext import cloze, html_escape
 from .ascii_data import AsciiData
 
 __all__ = ["generate_deck"]
@@ -57,7 +54,7 @@ def generate_deck(upper_bound: int) -> None:
     ascii_map = AsciiData.load_from()
 
     deck = Deck(ascii_map.deck_id, "ASCII Codes", "ASCII codes, from 0 to 127.")
-    deck.add_model(CLOZE_MODEL)
+    deck.add_model(CLOZE_WITH_ID)
 
     for i in range(upper_bound):
         note = gen_ascii_note(ascii_map, i)

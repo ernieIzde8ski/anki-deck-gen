@@ -4,8 +4,9 @@ import pydantic
 from pydantic import BaseModel
 from typing_extensions import Self
 
-from ..dirs import media
-from ..genanki_ext import random_id
+from ankidg_core import media
+from genanki_ext import random_id
+
 from .cached_note import CachedNote
 
 __all__ = ["Lockfile", "LOCKFILE_PATH"]

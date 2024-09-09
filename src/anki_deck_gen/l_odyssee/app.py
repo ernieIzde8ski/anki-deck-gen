@@ -3,8 +3,9 @@ from pathlib import Path
 
 from genanki import Deck, Note, Package
 
-from ..dirs import media, target
-from ..genanki_ext import REVERSED_WITH_MEDIA_IN_FRONT
+from ankidg_core import media, target
+from genanki_ext import REVERSED_WITH_MEDIA_IN_FRONT
+
 from .cached_note import CachedNote
 from .lockfile import Lockfile
 from .required_input import required_input

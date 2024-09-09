@@ -4,7 +4,7 @@ from pathlib import Path
 from pydantic import BaseModel, TypeAdapter
 from typing_extensions import Self
 
-from ..dirs import media
+from ankidg_core import media
 
 __all__ = ["AsciiData"]
 
