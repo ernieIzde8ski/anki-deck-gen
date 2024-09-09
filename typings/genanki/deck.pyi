@@ -15,6 +15,8 @@ class Deck:
     name: str | None
     description: str
     notes: list[Note]
+    models: dict[int, Model] = {}
+    """Map of model ID to model"""
 
     def __init__(
         self, deck_id: int | None = None, name: str | None = None, description: str = ""

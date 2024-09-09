@@ -4,11 +4,11 @@ __all__ = ["REVERSED_WITH_MEDIA_IN_FRONT", "CLOZE_WITH_ID"]
 
 REVERSED_WITH_MEDIA_IN_FRONT = Model(
     1760852270,
-    "Basic (and reversed card) (genanki)",
+    "Basic & reversed card (anki-deck-gen)",
     fields=[
+        {"name": "MediaFile"},
         {"name": "Front", "font": "Arial"},
         {"name": "Back", "font": "Arial"},
-        {"name": "MediaFile"},
     ],
     templates=[
         {

@@ -123,7 +123,7 @@ def generate_decks(
             media_files.append(relative_directory / filename)
             note = Note(
                 model=REVERSED_WITH_MEDIA_IN_FRONT,
-                fields=[cached_note.front or fp, cached_note.back, f"[sound:{filename}]"],
+                fields=[f"[sound:{filename}]", cached_note.front or fp, cached_note.back],
             )
             deck.add_note(note)
         decks.append(deck)
