@@ -1,3 +1,4 @@
+import logging
 import sys
 from collections.abc import Iterable
 from functools import partial
@@ -30,7 +31,10 @@ OptionalListArg = Annotated[list[Path] | None, typer.Argument()]
 
 @app.command()
 @async_wrapper
-async def main(updated_python_files: OptionalListArg = None, all: bool = False):
+async def main(
+    updated_python_files: OptionalListArg = None, all: bool = False, debug: bool = False
+):
+    logging.basicConfig(level=logging.DEBUG if debug is True else logging.INFO)
     sources: Iterable[Path]
 
     if all:
@@ -38,7 +42,7 @@ async def main(updated_python_files: OptionalListArg = None, all: bool = False):
     elif updated_python_files:
         sources = updated_python_files
     else:
-        eprint("error: neither Python source files nor --all specified.")
+        logging.error("neither Python source files nor --all specified.")
         raise typer.Abort()
 
     sources = {source.parent for source in sources}
@@ -67,7 +71,7 @@ async def main(updated_python_files: OptionalListArg = None, all: bool = False):
     if not ast_errors:
         return
 
-    print("Additionally, the following errors were detected:")
+    eprint("Additionally, the following errors were detected:")
     for error in ast_errors:
         eprint(error)
     raise typer.Abort()

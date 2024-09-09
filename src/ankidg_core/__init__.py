@@ -1,7 +1,7 @@
 ### START GEN-INIT TEMPLATE ###
 
-__all__ = ["ROOT", "MEDIA", "media", "TARGET", "target"]
+__all__ = ["MEDIA", "ROOT", "TARGET", "media", "target"]
 
-from .dirs import ROOT, MEDIA, media, TARGET, target
+from .dirs import MEDIA, ROOT, TARGET, media, target
 
 ### END GEN-INIT TEMPLATE ###

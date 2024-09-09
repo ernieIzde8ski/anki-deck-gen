@@ -1,4 +1,5 @@
 import asyncio
+import logging
 import re
 from collections.abc import AsyncGenerator, Iterable
 from pathlib import Path
@@ -39,11 +40,18 @@ class InitGenerator:
             elif path.is_file() and re.match(PythonImportFile, path.name) is not None:
                 yield (path, path.name.removesuffix(path.suffix))
 
+    @staticmethod
+    def __sort_key(s: str) -> tuple[bool, str]:
+        return (not s.isupper(), s)
+
     @classmethod
     def __generate_template_text(cls, exports: dict[str, ExportDeclarations]) -> str:
         lines = ["### START GEN-INIT TEMPLATE ###\n", "__all__ = ["]
 
-        for import_name, export_declarations in exports.items():
+        sort_key = cls.__sort_key
+        import_names = sorted(exports, key=sort_key)
+        for import_name in import_names:
+            export_declarations = sorted(exports[import_name], key=sort_key)
             lines[1] += '"' + '", "'.join(export_declarations) + '",'
             line = f"from .{import_name} import " + ", ".join(export_declarations)
             lines.append(line)
@@ -70,7 +78,7 @@ class InitGenerator:
         for path, import_name in self.__find_relative_imports(dir):
             task = self.__tasks.get(path.parent) if path.name == "__init__.py" else None
             if task and not task.done():
-                print(f"{dir.name}: waiting on resolution of {import_name}")
+                logging.debug(f"{dir.name}: waiting on resolution of {import_name}")
                 res = await task
                 if isinstance(res, AstErrors):
                     return AstSuccess.IGNORED
@@ -79,11 +87,11 @@ class InitGenerator:
             if isinstance(res, AstError):
                 errors.append(res)
             elif res is None:
-                print("\tWARNING: missing `__all__` attribute in", path)
+                logging.warning(f"missing `__all__` attribute in {path}")
             else:
                 exports[import_name] = res
 
-            print(f"{dir.name}: scanned {import_name}")
+            logging.debug(f"{dir.name}: scanned {import_name}")
 
         if errors:
             return errors
