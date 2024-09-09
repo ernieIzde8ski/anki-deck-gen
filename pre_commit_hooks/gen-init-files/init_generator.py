@@ -15,6 +15,10 @@ __all__ = ["InitGenerator"]
 PythonImportModule = re.compile(r"^[A-Za-z][A-Za-z_]+$")
 PythonImportFile = re.compile(r"^[A-Za-z][A-Za-z_]+\.py$")
 
+IgnoreComment = re.compile(r"###\s* GEN-INIT: IGNORE\s*###", re.IGNORECASE)
+StartComment = re.compile(r"###\s*START GEN-INIT TEMPLATE\s*###", re.IGNORECASE)
+EndComment = re.compile(r"###\s*END GEN-INIT TEMPLATE\s*###", re.IGNORECASE)
+
 
 class InitGenerator:
     """Generates `__init__.py` files for a set of directories."""
@@ -108,25 +112,24 @@ class InitGenerator:
             new_file_lines: list[str] = []
 
             for line in old_file_lines:
-                if re.match(
-                    r"###\s*START GEN-INIT TEMPLATE\s*###", line.strip(), re.IGNORECASE
-                ):
+                stripped = line.strip()
+                if re.match(StartComment, stripped):
                     break
+                elif re.match(IgnoreComment, stripped):
+                    return AstSuccess.IGNORED
                 else:
                     new_file_lines.append(line)
 
             new_file_lines.append(template_text)
 
             for line in old_file_lines:
-                if re.match(
-                    r"###\s*END GEN-INIT TEMPLATE\s*###", line.strip(), re.IGNORECASE
-                ):
+                if re.match(EndComment, line.strip()):
                     break
 
             new_file_lines.extend(old_file_lines)
             new_file_text = "\n".join(new_file_lines)
             if old_file_text == new_file_text:
-                return AstSuccess.IGNORED
+                return AstSuccess.SKIPPED
             else:
                 _ = init_path.write_text(new_file_text)
                 return AstSuccess.REBUILT
