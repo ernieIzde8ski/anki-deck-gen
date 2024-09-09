@@ -10,8 +10,9 @@ line_length = 90
 
 [tool.basedpyright]
 reportImplicitStringConcatenation = false
-reportUnknownMemberType = false
 pythonVersion = "3.10"
+stubPath = "typings"
+ignore = ["typings"]
 
 # packaging
 [build-system]
