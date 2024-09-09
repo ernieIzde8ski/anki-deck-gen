@@ -1,8 +1,8 @@
 import unicodedata
 from pathlib import Path
-from typing import Self
 
 from pydantic import BaseModel, TypeAdapter
+from typing_extensions import Self
 
 from ..dirs import media
 

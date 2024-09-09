@@ -1,9 +1,8 @@
 from __future__ import annotations
 
-from typing import Self
-
 import pydantic
 from pydantic import BaseModel
+from typing_extensions import Self
 
 from ..dirs import media
 from ..genanki_ext import random_id

@@ -11,6 +11,7 @@ line_length = 90
 [tool.basedpyright]
 reportImplicitStringConcatenation = false
 reportUnknownMemberType = false
+pythonVersion = "3.10"
 
 # packaging
 [build-system]
@@ -34,9 +35,11 @@ classifiers = [
 dynamic = ["dependencies"]
 license = { file = "LICENSE" }
 scripts = { "anki-deck-gen" = "anki_deck_gen.app:app" }
+
 [project.urls]
 Homepage = "https://github.com/ernieIzde8ski/anki-deck-gen"
 Issues =  "https://github.com/ernieIzde8ski/anki-deck-gen/issues"
+
 [tool.setuptools.dynamic]
 dependencies = { file = "requirements.txt" }
 

@@ -1,6 +1,10 @@
 -r requirements.txt
 
+# pre-commit
+black>=24.8.0
 pre-commit>=3.7.1
+
+# packaging
 setuptools>=73.0.1
 twine>=5.1.1
 build>=1.2.1

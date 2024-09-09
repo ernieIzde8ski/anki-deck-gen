@@ -5,8 +5,7 @@ from genanki.builtin_models import CLOZE_MODEL
 from genanki.deck import Deck
 
 from anki_deck_gen.dirs import TARGET
-from anki_deck_gen.genanki_ext.models import CLOZE_WITH_ID
-from anki_deck_gen.genanki_ext.text_utils import xml_wrap
+from anki_deck_gen.genanki_ext import CLOZE_WITH_ID, xml_wrap
 
 from ..genanki_ext import cloze, html_escape
 from .ascii_data import AsciiData

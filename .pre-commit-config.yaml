@@ -5,6 +5,13 @@ repos:
       - id: check-yaml
       - id: end-of-file-fixer
       - id: trailing-whitespace
+  - repo: local
+    hooks:
+      - id: gen-init-files
+        name: gen-init-files
+        entry: python -m pre_commit_hooks.gen-init-files
+        language: system
+        files: "src/.*\\.py"
   - repo: https://github.com/psf/black
     rev: "24.8.0"
     hooks:
@@ -13,3 +20,4 @@ repos:
     rev: "5.13.2"
     hooks:
       - id: isort
+        exclude: "src/.*__init__\\.py"

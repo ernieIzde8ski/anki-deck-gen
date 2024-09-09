@@ -8,6 +8,8 @@ from ..genanki_ext import REVERSED_WITH_MEDIA_IN_FRONT
 from .cached_note import CachedNote
 from .lockfile import Lockfile
 
+__all__ = ["app"]
+
 AUDIO_DIRECTORY = media("l_odyssee", "audio")
 
 
