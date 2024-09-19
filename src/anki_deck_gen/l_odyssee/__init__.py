@@ -1,10 +1,10 @@
-### START GEN-INIT TEMPLATE ###
+### GEN-INIT: TEMPLATE-START ###
 
 __all__ = [
-    "CachedNote",
-    "generate_package",
     "LOCKFILE_PATH",
+    "CachedNote",
     "Lockfile",
+    "generate_package",
     "required_input",
 ]
 
@@ -13,4 +13,4 @@ from .generate_package import generate_package
 from .lockfile import LOCKFILE_PATH, Lockfile
 from .required_input import required_input
 
-### END GEN-INIT TEMPLATE ###
+### GEN-INIT: TEMPLATE-CLOSE ###

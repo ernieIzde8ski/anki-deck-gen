@@ -1,8 +1,8 @@
-### START GEN-INIT TEMPLATE ###
+### GEN-INIT: TEMPLATE-START ###
 
 __all__ = ["AsciiData", "generate_deck"]
 
 from .ascii_data import AsciiData
 from .generate_deck import generate_deck
 
-### END GEN-INIT TEMPLATE ###
+### GEN-INIT: TEMPLATE-CLOSE ###

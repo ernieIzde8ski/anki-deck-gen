@@ -1,3 +1,4 @@
+# cat requirements.txt requirements-dev.txt | rg '^\s*([^#]+)' -r '$1' | xargs printf '"%b", '
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: "v4.6.0"
@@ -9,9 +10,18 @@ repos:
     hooks:
       - id: gen-init-files
         name: gen-init-files
-        entry: python -m pre_commit_hooks.gen-init-files
-        language: system
-        files: "src/.*\\.py"
+        entry: "adg.gen-init-files"
+        language: python
+        types: [python]
+        additional_dependencies:
+          [
+            "genanki>=0.13.1",
+            "pydantic>=2.8.2",
+            "typer>=0.12.5",
+            "black>=24.8.0",
+            "pre-commit>=3.7.1",
+            "pytest>=8.3.3",
+          ]
       # shoutout to https://github.com/RobertCraigie/pyright-python
       - id: pyright
         name: pyright
@@ -20,8 +30,30 @@ repos:
         language: python
         "types_or": [python]
         require_serial: true
-        additional_dependencies: ["genanki", "pydantic", "black", "typer"]
         minimum_pre_commit_version: "2.9.2"
+        additional_dependencies:
+          [
+            "genanki>=0.13.1",
+            "pydantic>=2.8.2",
+            "typer>=0.12.5",
+            "black>=24.8.0",
+            "pre-commit>=3.7.1",
+            "pytest>=8.3.3",
+          ]
+      - id: pytest
+        name: pytest
+        entry: pytest
+        language: python
+        pass_filenames: false
+        additional_dependencies:
+          [
+            "genanki>=0.13.1",
+            "pydantic>=2.8.2",
+            "typer>=0.12.5",
+            "black>=24.8.0",
+            "pre-commit>=3.7.1",
+            "pytest>=8.3.3",
+          ]
   - repo: https://github.com/psf/black
     rev: "24.8.0"
     hooks:
@@ -30,4 +62,3 @@ repos:
     rev: "5.13.2"
     hooks:
       - id: isort
-        exclude: "src/.*__init__\\.py"

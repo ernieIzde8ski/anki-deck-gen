@@ -1,4 +1,4 @@
-# dev tools
+# devel tools
 [tool.black]
 line-length = 90
 target-version = ["py310", "py311", "py312"]
@@ -22,27 +22,32 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "anki-deck-gen"
 version = "0.1.0"
-authors = [
-    { name="Ernest Izdebski", email="44341687+ernieIzde8ski@users.noreply.github.com" }
-]
 description = "A generator for my Anki decks."
 readme = { file = "README.md", content-type="text/markdown" }
 requires-python = ">=3.10"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
 ]
-dynamic = ["dependencies"]
+dynamic = ["dependencies", "optional-dependencies"]
 license = { file = "LICENSE" }
-scripts = { "anki-deck-gen" = "anki_deck_gen.app:app" }
+
+[[project.authors]]
+name = "Ernest Izdebski"
+email = "44341687+ernieIzde8ski@users.noreply.github.com"
 
 [project.urls]
 Homepage = "https://github.com/ernieIzde8ski/anki-deck-gen"
 Issues =  "https://github.com/ernieIzde8ski/anki-deck-gen/issues"
 
+[tool.setuptools.packages.find]
+where = ["src", "pre_commit_hooks"]
+
+[project.scripts]
+anki-deck-gen  = "anki_deck_gen.app:app"
+"adg.gen-init-files" = "ankidg_gen_init_files.app:app"
+
 [tool.setuptools.dynamic]
 dependencies = { file = "requirements.txt" }
-
-[tool.setuptools.packages.find]
-where = ["src"]
+optional-dependencies = { devel = { file = "requirements-dev.txt" }}

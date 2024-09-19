@@ -7,10 +7,12 @@ from typing import Annotated
 
 import typer
 
-from .ast_errors import AstErrors
-from .ast_tools import AstSuccess
 from .async_wrapper import async_wrapper
+from .error import AstError, ResolutionError
 from .init_generator import InitGenerator
+from .result import ResultStatus
+
+__all__ = ["app"]
 
 eprint = partial(print, file=sys.stderr)
 
@@ -39,6 +41,7 @@ async def main(
 
     if all:
         sources = Path().glob("src/**/*.py")
+        sources = filter(is_a_normal_import, sources)
     elif updated_python_files:
         sources = updated_python_files
     else:
@@ -47,35 +50,42 @@ async def main(
 
     sources = {source.parent for source in sources}
 
-    ast_errors = AstErrors()
+    errors: list[AstError | ResolutionError] = []
 
-    async for path, errors in InitGenerator(sources):
+    async for path, result in InitGenerator(sources):
         name: str
         code: str
 
-        name = str(path).ljust(73, ".")
+        name = str(path).ljust(72, ".")
 
-        match errors:
-            case AstSuccess.IGNORED:
+        match result:
+            case (ResultStatus.IGNORED, None):
                 code = "Ignored"
-            case AstSuccess.REBUILT:
-                code = "Rebuilt"
-            case AstSuccess.SKIPPED:
+            case (ResultStatus.SKIPPED, None):
                 code = "Skipped"
-            case _:
+            case (ResultStatus.SUCCESS, None):
+                code = "Rebuilt"
+            case (ResultStatus.FAILURE, error):
+                errors.extend(error.excs)
                 code = ".Failed"
-                ast_errors.extend(errors)
 
         eprint(name + code)
 
-    if not ast_errors:
+    if not errors:
         return
 
     eprint("Additionally, the following errors were detected:")
-    for error in ast_errors:
-        eprint(error)
+
+    resolution_errors = 0
+
+    for error in errors:
+        if isinstance(error, ResolutionError):
+            resolution_errors += 1
+        else:
+            eprint(error)
+
+    if resolution_errors > 0:
+        print()
+        print("...and", resolution_errors, "resulting resolution errors.")
+
     raise typer.Abort()
-
-
-if __name__ == "__main__":
-    app()
