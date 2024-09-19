@@ -4,6 +4,7 @@ from pathlib import Path
 from genanki import Deck, Note, Package
 
 from ankidg_core import media, target
+from ankidg_core.dirs import TARGET
 from genanki_ext import REVERSED_WITH_MEDIA_IN_FRONT
 
 from .cached_note import CachedNote
@@ -120,7 +121,8 @@ def generate_package() -> None:
         relative_directory=AUDIO_DIRECTORY,
     )
     package = Package(decks, media_files=media_files)
-
     package_target = target("l_odyssee.apkg")
+    if not TARGET.exists():
+        TARGET.mkdir()
     package.write_to_file(package_target)
     logging.debug(f"Wrote package to file: {package_target}")
