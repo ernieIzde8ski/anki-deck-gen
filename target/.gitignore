@@ -1,0 +1,5 @@
+# This ensures that this directory always exists,
+# but its contents do not.
+
+*
+!.gitignore

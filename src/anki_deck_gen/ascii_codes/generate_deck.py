@@ -2,19 +2,12 @@ from sys import stderr
 
 from genanki import Deck, Note
 
-from ankidg_core import TARGET
+from ankidg_core import target as get_target_path
 from genanki_ext import CLOZE_WITH_ID, cloze, html_escape, xml_wrap
 
 from .ascii_data import AsciiData
 
 __all__ = ["generate_deck"]
-
-
-def get_target_path():
-    target_dir = TARGET
-    if not target_dir.exists():
-        target_dir.mkdir()
-    return target_dir / "ascii_deck.apkg"
 
 
 def gen_ascii_note(data: AsciiData, i: int) -> Note:
