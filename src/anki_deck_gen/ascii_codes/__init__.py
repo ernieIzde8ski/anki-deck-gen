@@ -1,8 +1,4 @@
-### GEN-INIT: TEMPLATE-START ###
+### GEN-INIT: IGNORE ###
 
-__all__ = ["AsciiData", "generate_deck"]
-
-from .ascii_data import AsciiData
-from .generate_deck import generate_deck
-
-### GEN-INIT: TEMPLATE-CLOSE ###
+__all__ = ["__version__"]
+__version__ = "1.0.0"

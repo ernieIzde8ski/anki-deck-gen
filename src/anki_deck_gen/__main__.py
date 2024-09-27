@@ -1,3 +1,3 @@
-from anki_deck_gen.app import app
+import anki_deck_gen.app as app
 
-app()
+app.app()

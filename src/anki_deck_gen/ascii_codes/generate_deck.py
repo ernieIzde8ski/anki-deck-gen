@@ -53,6 +53,6 @@ def generate_deck(upper_bound: int) -> None:
         note = gen_ascii_note(ascii_map, i)
         deck.add_note(note)
 
-    target_path = get_target_path()
+    target_path = get_target_path("ascii.apkg")
     deck.write_to_file(target_path)
     print("successfully wrote to file!\ntarget:", target_path, file=stderr)
