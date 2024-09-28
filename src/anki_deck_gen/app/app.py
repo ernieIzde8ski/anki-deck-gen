@@ -64,13 +64,17 @@ def app_callback(
 
 @app.command(help="Generates the L'Odyssée deck.")
 def odyssee(
+    copy: Annotated[
+        bool,
+        typer.Option(help="Copy front-side text to clipboard when updating entries."),
+    ] = False,
     _version: Annotated[
         bool | None, VersionAnnotation(CoreVersion, AppVersion, OdysseeVersion)
-    ] = None
+    ] = None,
 ):
     from ..l_odyssee.generate_package import generate_package
 
-    generate_package()
+    generate_package(copy_input_text_to_clipboard=copy)
 
 
 def parse_upper_bound(value: str):

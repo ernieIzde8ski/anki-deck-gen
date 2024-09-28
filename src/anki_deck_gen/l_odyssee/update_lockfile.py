@@ -1,6 +1,8 @@
 import logging
 from pathlib import Path
 
+import pyperclip
+
 from .cached_note import CachedNote
 from .lockfile import Lockfile
 from .required_input import required_input
@@ -8,7 +10,9 @@ from .required_input import required_input
 __all__ = ["prompt_for_updated_root_lockfile"]
 
 
-def prompt_update_relative_lockfile(old: Lockfile, relative_directory: Path) -> Lockfile:
+def prompt_update_relative_lockfile(
+    old: Lockfile, relative_directory: Path, copy_input_text_to_clipboard: bool
+) -> Lockfile:
     """Updates a given lockfile, specified to be relative to a specific directory, from prompted input."""
     new = Lockfile()
 
@@ -20,16 +24,20 @@ def prompt_update_relative_lockfile(old: Lockfile, relative_directory: Path) -> 
 
             sub_old = old.children[file.name]
             sub_dir = relative_directory / file
-            sub_new = prompt_update_relative_lockfile(sub_old, sub_dir)
+            sub_new = prompt_update_relative_lockfile(
+                sub_old, sub_dir, copy_input_text_to_clipboard
+            )
             if sub_new.notes:
                 sub_new.maybe_deck_ids = sub_old.deck_ids
             new.children[file.name] = sub_new
         elif file.suffix == ".mp3":
-            file_name = file.name.removesuffix("".join(file.suffixes))
-            if file_name in old.notes:
-                new.notes[file_name] = old.notes[file_name]
+            front_text = file.name.removesuffix("".join(file.suffixes))
+            if front_text in old.notes:
+                new.notes[front_text] = old.notes[front_text]
             else:
-                print(f"Front: {file_name}")
+                if copy_input_text_to_clipboard:
+                    pyperclip.copy(front_text)
+                print(f"Front: {front_text}")
                 back = required_input("Back:  ")
                 if back == "NULL":
                     note = None
@@ -37,7 +45,7 @@ def prompt_update_relative_lockfile(old: Lockfile, relative_directory: Path) -> 
                 else:
                     note = CachedNote(front=None, back=back)
                 print()
-                new.notes[file_name] = old.notes[file_name] = note
+                new.notes[front_text] = old.notes[front_text] = note
 
     return new
 
@@ -49,7 +57,9 @@ def print_deck_ids(lockfile: Lockfile):
         print_deck_ids(child)
 
 
-def prompt_for_updated_root_lockfile(root_audio_directory: Path) -> Lockfile:
+def prompt_for_updated_root_lockfile(
+    root_audio_directory: Path, copy_input_text_to_clipboard: bool
+) -> Lockfile:
     """
     Gets a lockfile, prompts for new keys, saves to disk,
     and returns a lockfile with verified files.
@@ -65,7 +75,7 @@ def prompt_for_updated_root_lockfile(root_audio_directory: Path) -> Lockfile:
     try:
         logging.debug("Ensuring lockfile is up to date.")
         new_lockfile = prompt_update_relative_lockfile(
-            disk_lockfile, root_audio_directory
+            disk_lockfile, root_audio_directory, copy_input_text_to_clipboard
         )
         """Lockfile only with the mp3s that definitely exist."""
         logging.debug("deck ids of new_lockfile:")

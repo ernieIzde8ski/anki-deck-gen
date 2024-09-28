@@ -27,4 +27,5 @@ new:
 - fix missing `__all__` attribute in genanki_ext.str_classes module
 - add "Normal" and "Challenge" decks to L'Odyssée
 - add log level customization
+- add `--copy` flag to the `odyssee` command
 - add CHANGELOG

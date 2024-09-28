@@ -65,10 +65,13 @@ def generate_decks(
     return (decks, media_files)
 
 
-def generate_package() -> None:
+def generate_package(copy_input_text_to_clipboard: bool) -> None:
     logging.basicConfig(level=logging.DEBUG)
 
-    lockfile = prompt_for_updated_root_lockfile(root_audio_directory=AUDIO_DIRECTORY)
+    lockfile = prompt_for_updated_root_lockfile(
+        root_audio_directory=AUDIO_DIRECTORY,
+        copy_input_text_to_clipboard=copy_input_text_to_clipboard,
+    )
 
     logging.debug("Generating package")
     decks, media_files = generate_decks(

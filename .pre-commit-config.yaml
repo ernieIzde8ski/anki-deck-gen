@@ -38,6 +38,7 @@ repos:
             "typer>=0.12.5",
             "black>=24.8.0",
             "pre-commit>=3.7.1",
+            "pyperclip>=1.9.0",
             "pytest>=8.3.3",
           ]
       - id: pytest
