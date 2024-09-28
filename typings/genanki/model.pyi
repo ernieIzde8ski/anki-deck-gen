@@ -11,6 +11,10 @@ class Model:
     CLOZE: Literal[1] = ...
     DEFAULT_LATEX_PRE: str = ...
     DEFAULT_LATEX_POST: str = ...
+
+    model_id: int
+    name: str
+
     def __init__(
         self,
         model_id: int,

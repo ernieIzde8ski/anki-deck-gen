@@ -1,0 +1,15 @@
+{
+  "id": 1778630758,
+  "name": "Basic & reversed media card w/ text input (anki-deck-gen)",
+  "fields": [
+    { "name": "MediaFile" },
+    {
+      "name": "Front",
+      "font": "Arial"
+    },
+    {
+      "name": "Back",
+      "font": "Arial"
+    }
+  ]
+}

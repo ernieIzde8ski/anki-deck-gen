@@ -1,4 +1,5 @@
-from typing import Annotated
+import logging
+from typing import Annotated, Literal, cast
 
 import typer
 
@@ -14,14 +15,51 @@ __all__ = ["app"]
 
 app = typer.Typer()
 
+LogLevels = Literal[0, 10, 20, 30, 40, 50]
+
+
+def parse_log_level(value: str | Literal[20]) -> LogLevels:
+    if isinstance(value, int):
+        return value
+
+    value = value.strip().upper()
+    match value:
+        case "" | "NOTSET":
+            return logging.NOTSET
+        case "DEBUG":
+            return logging.DEBUG
+        case "INFO":
+            return logging.INFO
+        case "WARN" | "WARNING":
+            return logging.WARN
+        case "ERROR":
+            return logging.ERROR
+        case "FATAL" | "CRITICAL":
+            return logging.FATAL
+        case n:
+            try:
+                return cast(LogLevels, int(n))
+            except ValueError:
+                raise typer.BadParameter(
+                    "log level must be a valid name or number for a level in `logging`"
+                )
+
 
 @app.callback()
 def app_callback(
+    log_level: Annotated[
+        LogLevels,
+        typer.Option(
+            envvar="ADG_LOG_LEVEL",
+            parser=parse_log_level,
+            help="Set level for logging module. Accepts level names or integers.",
+        ),
+    ] = 20,
     _version: Annotated[
         bool | None, VersionAnnotation(CoreVersion, AppVersion, OdysseeVersion)
-    ] = None
+    ] = None,
 ):
-    pass
+    logging.basicConfig(level=log_level)
 
 
 @app.command(help="Generates the L'Odyssée deck.")

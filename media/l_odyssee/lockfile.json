@@ -27,7 +27,7 @@
         "l'heure du retour": "return time",
         "ils périrent par leur impiété": "they perished through their impiety",
         "sa demeure": "(his) home",
-        "des combats": "battles",
+        "des combats": "of the battles",
         "la très-noble déesse": "the most noble goddess",
         "loin de son pays": "far from (his) country",
         "qui avaient évité": "who had avoided",
@@ -72,7 +72,7 @@
         "la terre et l'Ouranos": "earth and Ouranos",
         "de ne point tuer Agamemnôn": "not to kill Agamemnon",
         "s'étant unie à Poseidaôn": "having united with Poseidon",
-        "Herméias parla ainsi": "Hermes spoke thus",
+        "Herméias parla ainsi": "Hermes spake thus",
         "ils accusent les Dieux": "they accuse the Gods",
         "de son pays": "from (his) country",
         "qui entoure la terre": "which surrounds the earth",
@@ -225,13 +225,19 @@
         "Elle lui répondit": "She answered (him)",
         "le contraint d'errer": "forced him to wander"
       },
-      "deck-id": 1198430006
+      "deck-id": [
+        1198430006,
+        1892247997
+      ]
     },
     "Chapter 2": {
       "notes": {
         "Dummy File": null
       },
-      "deck-id": 1149880623
+      "deck-id": [
+        1149880623,
+        1933832144
+      ]
     }
   }
 }

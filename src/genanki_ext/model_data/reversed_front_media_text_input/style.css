@@ -1,0 +1,33 @@
+.card {
+  font-family: arial;
+  font-size: 20px;
+  color: black;
+  background-color: white;
+  text-align: center;
+}
+
+code {
+  font-size: 85%;
+}
+
+#outer {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#media {
+  position: absolute;
+  justify-items: end;
+  top: 25%;
+  right: 0px;
+  transform: translate(100%);
+}
+
+.inline {
+  display: inline-grid;
+}
+
+.left {
+  text-align: left;
+}

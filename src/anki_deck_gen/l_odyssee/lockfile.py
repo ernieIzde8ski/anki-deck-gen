@@ -1,13 +1,16 @@
 from __future__ import annotations
 
+import logging
+
 import pydantic
-from pydantic import BaseModel
 from typing_extensions import Self
 
-from ankidg_core import media
+from ankidg_core import BaseModel, media
+from ankidg_core.strtools import StrMixin
 from genanki_ext import random_id
 
 from .cached_note import CachedNote
+from .deck_id import DeckIds
 
 __all__ = ["Lockfile", "LOCKFILE_PATH"]
 
@@ -15,10 +18,10 @@ __all__ = ["Lockfile", "LOCKFILE_PATH"]
 LOCKFILE_PATH = media("l_odyssee", "lockfile.json")
 
 
-class Lockfile(BaseModel):
+class Lockfile(BaseModel, StrMixin):
     children: dict[str, Lockfile] = pydantic.Field(default_factory=dict)
     notes: dict[str, CachedNote | None] = pydantic.Field(default_factory=dict)
-    maybe_deck_id: int | None = pydantic.Field(default=None, alias="deck-id")
+    maybe_deck_ids: DeckIds | None = pydantic.Field(default=None, alias="deck-id")
 
     @classmethod
     def read_from_file(cls) -> Self:
@@ -35,6 +38,7 @@ class Lockfile(BaseModel):
             _ = file.write("\n")
 
     def update(self, other: Lockfile) -> None:
+        self.maybe_deck_ids = other.maybe_deck_ids
         self.notes.update(other.notes)
         if other.children:
             if not self.children:
@@ -42,7 +46,8 @@ class Lockfile(BaseModel):
             self.children.update(other.children)
 
     @property
-    def deck_id(self) -> int:
-        if self.maybe_deck_id is None:
-            self.maybe_deck_id = random_id()
-        return self.maybe_deck_id
+    def deck_ids(self) -> DeckIds:
+        if self.maybe_deck_ids is None:
+            logging.debug("maybe_deck_id is None!")
+            self.maybe_deck_ids = DeckIds(random_id(), random_id())
+        return self.maybe_deck_ids

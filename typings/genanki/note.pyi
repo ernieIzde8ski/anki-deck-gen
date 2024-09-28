@@ -26,6 +26,8 @@ class _TagList(list[str]):
     def insert(self, i: SupportsIndex, tag: str) -> None: ...
 
 class Note:
+    model: Model
+    fields: list[str] | None
     _INVALID_HTML_TAG_RE: Pattern[str] = ...
     def __init__(
         self,

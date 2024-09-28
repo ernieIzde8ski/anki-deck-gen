@@ -47,7 +47,9 @@ def VersionAnnotation(*versions: Version) -> Any:  # pyright: ignore[reportAny]
                 print(name.ljust(max_name_len), ":", "v" + version)
         raise typer.Exit()
 
-    return typer.Option("--version", callback=inner)  # pyright: ignore[reportAny]
+    return typer.Option(
+        "--version", callback=inner, is_eager=True
+    )  # pyright: ignore[reportAny]
 
 
 CoreVersion = Version("ankidg_core", CoreBaseVersion, False)

@@ -1,6 +1,8 @@
 from typing import Literal, TypeVar
 
-from pydantic import BaseModel, ConfigDict, model_serializer, model_validator
+from pydantic import ConfigDict, model_serializer, model_validator
+
+from ankidg_core import BaseModel
 
 __all__ = ["CachedNote"]
 

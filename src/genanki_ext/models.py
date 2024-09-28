@@ -1,10 +1,16 @@
-from genanki.model import Model
+from .model_data import read_model
+from .str_classes import Model
 
-__all__ = ["REVERSED_WITH_MEDIA_IN_FRONT", "CLOZE_WITH_ID"]
+__all__ = [
+    "REVERSED_WITH_MEDIA_IN_FRONT",
+    "REVERSED_WITH_FRONT_MEDIA_AND_TEXT_INPUT",
+    "CLOZE_WITH_ID",
+]
+
 
 REVERSED_WITH_MEDIA_IN_FRONT = Model(
     1760852270,
-    "Basic & reversed card (anki-deck-gen)",
+    "Basic & reversed media card (anki-deck-gen)",
     fields=[
         {"name": "MediaFile"},
         {"name": "Front", "font": "Arial"},
@@ -24,6 +30,8 @@ REVERSED_WITH_MEDIA_IN_FRONT = Model(
     ],
     css=".card {\n font-family: arial;\n font-size: 20px;\n text-align: center;\n color: black;\n background-color: white;\n}\n",
 )
+
+REVERSED_WITH_FRONT_MEDIA_AND_TEXT_INPUT = read_model("reversed_front_media_text_input")
 
 # Documentation suggests this approach over using a GUID:
 # https://docs.ankiweb.net/importing/text-files.html#guid-column
