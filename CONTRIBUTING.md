@@ -21,6 +21,12 @@ the tool. If you have a list of words, phrases, or corrections you'd like to
 submit, file an issue instead and I will generate the audio for you.
 
 Audio is generated at <https://hearling.com/clips>, with Language set to French,
-Dialect set to French (Canada), and Voice set to B Standard Male. Uncertain if
-this is the most Quebecois-sounding option, might have to ask the French
-speakers I know.
+Dialect set to French (Canada), and Voice set to a Wavenet-quality option.
+Alternate between the different voice options per each paragraph. As a soft
+requirement, match up gender of the canonical speaker with gender of the TTS
+speaker.
+
+Older entries were all generated using B Standard Male, a non-Wavenet entry. As
+a known issue, I do not believe any of the options sound very Québécois. I do
+not believe that there are good Québécois TTS models out there, but I'd be happy
+to be proven wrong.

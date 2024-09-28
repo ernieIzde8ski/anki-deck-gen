@@ -20,7 +20,9 @@ LOCKFILE_PATH = media("l_odyssee", "lockfile.json")
 
 class Lockfile(BaseModel, StrMixin):
     children: dict[str, Lockfile] = pydantic.Field(default_factory=dict)
+    """Child Lockfile nodes."""
     notes: dict[str, CachedNote | None] = pydantic.Field(default_factory=dict)
+    """Notes for Anki decks."""
     maybe_deck_ids: DeckIds | None = pydantic.Field(default=None, alias="deck-id")
 
     @classmethod

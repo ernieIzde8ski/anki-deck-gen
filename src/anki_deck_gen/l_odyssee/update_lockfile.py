@@ -12,9 +12,8 @@ __all__ = ["prompt_for_updated_root_lockfile"]
 
 def prompt_update_relative_lockfile(
     old: Lockfile, relative_directory: Path, copy_input_text_to_clipboard: bool
-) -> Lockfile:
+):
     """Updates a given lockfile, specified to be relative to a specific directory, from prompted input."""
-    new = Lockfile()
 
     for file in relative_directory.iterdir():
         if file.is_dir():
@@ -82,14 +81,14 @@ def prompt_for_updated_root_lockfile(
         print_deck_ids(new_lockfile)
     except EOFError:
         print()
-        logging.debug("Saving lockfile")
+        logging.info("Saving lockfile")
         disk_lockfile.save_to_file()
         raise
 
     # if the user was prompted,
     # then we can say something pro8a8ly changed
     if required_input.is_notified:
-        logging.debug("Updating lockfile")
+        logging.info("Updating lockfile")
         disk_lockfile.save_to_file()
     else:
         logging.debug("No new entries for lockfile")
