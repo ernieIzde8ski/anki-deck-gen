@@ -10,7 +10,7 @@ line_length = 90
 
 [tool.basedpyright]
 reportImplicitStringConcatenation = false
-pythonVersion = "3.10"
+pythonVersion = "3.12"
 stubPath = "typings"
 ignore = ["typings"]
 
@@ -50,4 +50,4 @@ anki-deck-gen = "anki_deck_gen.app:app"
 [tool.setuptools.dynamic]
 dependencies = { file = "requirements.txt" }
 optional-dependencies = { devel = { file = "requirements-dev.txt" }}
-version = { attr = "ankidg_core.__version__" }
+version = { attr = "ankidg_core.version.__version__" }
