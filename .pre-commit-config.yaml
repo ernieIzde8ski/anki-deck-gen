@@ -13,6 +13,7 @@ repos:
         entry: "adg.gen-init-files"
         language: python
         types: [python]
+        require_serial: true
         additional_dependencies:
           [
             "genanki>=0.13.1",
