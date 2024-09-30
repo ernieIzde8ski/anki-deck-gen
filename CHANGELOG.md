@@ -8,10 +8,12 @@ First major release. Expect breakage.
 
 breaking changes:
 
-- added new "Note" subclass without genanki's goofy `guid`
-  implementation, breaking the Odyssée deck in the process
-  - Only solution I could find was deleting the original
-    deck. Bye, progress.
+- added new subclass of Note, overriding genanki's goofy
+  `guid` implementation. This broke the Odyssée deck in the
+  process.
+  - First breakage I "solved" by deleting my original deck.
+  - Second breakage was easy with this package:
+    <https://ankiweb.net/shared/info/55394168>
 
 new:
 

@@ -27,11 +27,13 @@ class Note(genanki.Note, StrMixin):
           - genanki sets a guid for your note using a hash based off *all* fields.
           - The model in question is not accounted for.
         What this does:
-          - disables the note GUID.
+          - creates a note GUID from the first field alone.
 
         More information:
             <https://docs.ankiweb.net/importing/text-files.html?highlight=guid#guid-column>
         """
+        if self.fields:
+            return genanki.guid_for(self.fields[1])
         return ""
 
 
