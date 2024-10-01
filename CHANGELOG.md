@@ -31,3 +31,7 @@ new:
 - add log level customization
 - add `--copy` flag to the `odyssee` command
 - add CHANGELOG
+- switch from builtin `logger` to `loguru` package
+  - added custom formatter
+- fix rare issue with gen_init_files where `__all__ = []`
+- add pre-commit hook for pre-commit-config

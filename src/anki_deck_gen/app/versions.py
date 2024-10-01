@@ -3,6 +3,7 @@ from functools import partial
 from typing import Any, NamedTuple
 
 import typer
+from loguru import logger
 
 from ankidg_core import __version__ as CoreBaseVersion
 
@@ -33,7 +34,7 @@ class Version(NamedTuple):
 
 def VersionAnnotation(*versions: Version) -> Any:  # pyright: ignore[reportAny]
     if not versions:
-        eprint("error: no versions listed, something is catastrophically wrong")
+        logger.error("error: no versions listed, something is catastrophically wrong")
 
     max_name_len = max(len(v[0]) + (6 if v.is_deck else 0) for v in versions)
 

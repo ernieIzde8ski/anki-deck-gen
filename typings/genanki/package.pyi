@@ -10,6 +10,8 @@ from typing import Any, Iterator
 from genanki.deck import Deck
 
 class Package:
+    decks: Sequence[Deck]
+
     def __init__(
         self,
         deck_or_decks: Deck | Sequence[Deck],
@@ -23,7 +25,6 @@ class Package:
         :param timestamp: Timestamp (float seconds since Unix epoch) to assign to generated notes/cards. Can be used to
             make build hermetic. Defaults to time.time().
         """
-        ...
 
     def write_to_db(
         self, cursor: Cursor, timestamp: float, id_gen: Iterator[int]
@@ -46,4 +47,3 @@ class Package:
         Tip: if your deck has the same name and ID as an existing deck, then the notes will get placed in that deck rather
         than a new deck being created.
         """
-        ...

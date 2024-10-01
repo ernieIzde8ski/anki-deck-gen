@@ -1,32 +1,16 @@
-from collections.abc import Iterable, Iterator, Sequence
-from typing import Generic, NewType, TypeVar, cast
+__all__ = ["OptionalKey", "RequiredKey", "StrMixin", "indent"]
+
+from collections.abc import Iterable, Sequence
+from typing import NewType, cast
 
 from typing_extensions import override
 
-__all__ = ["OptionalKey", "RequiredKey", "StrMixin", "indent"]
+from .reiterator import Reiterator
 
 OptionalKey = NewType("OptionalKey", str)
 
 
 class RequiredKey(str): ...
-
-
-T = TypeVar("T")
-
-
-class Reiterator(Generic[T]):
-    __array__: list[T]
-    __iterator__: Iterator[T]
-
-    def __init__(self, iter: Iterator[T], /):
-        self.__array__ = []
-        self.__iterator__ = iter
-
-    def __iter__(self) -> Iterator[T]:
-        yield from self.__array__
-        for elem in self.__iterator__:
-            self.__array__.append(elem)
-            yield elem
 
 
 class StrMixin:

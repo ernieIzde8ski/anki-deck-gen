@@ -1,6 +1,5 @@
-from sys import stderr
-
 from genanki import Deck, Note
+from loguru import logger
 
 from ankidg_core import target as get_target_path
 from genanki_ext import CLOZE_WITH_ID, cloze, html_escape, xml_wrap
@@ -55,4 +54,4 @@ def generate_deck(upper_bound: int) -> None:
 
     target_path = get_target_path("ascii.apkg")
     deck.write_to_file(target_path)
-    print("successfully wrote to file!\ntarget:", target_path, file=stderr)
+    logger.info("Successfully wrote to file!\nTarget: {}", target_path)

@@ -5,6 +5,8 @@ __all__ = [
     "REVERSED_WITH_FRONT_MEDIA_AND_TEXT_INPUT",
     "REVERSED_WITH_MEDIA_IN_FRONT",
     "Deck",
+    "LoggedDeck",
+    "LoggedPackage",
     "Model",
     "Note",
     "Package",
@@ -16,6 +18,7 @@ __all__ = [
     "xml_wrap",
 ]
 
+from .logged_classes import LoggedDeck, LoggedPackage
 from .model_data import read_model
 from .models import (
     CLOZE_WITH_ID,

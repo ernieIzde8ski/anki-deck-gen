@@ -1,8 +1,10 @@
-import logging
-from typing import Annotated, Literal, cast
+from __future__ import annotations
+
+from typing import Annotated
 
 import typer
 
+from .logger import Level, configure_logger, parse_level
 from .versions import (
     AppVersion,
     AsciiVersion,
@@ -15,51 +17,22 @@ __all__ = ["app"]
 
 app = typer.Typer()
 
-LogLevels = Literal[0, 10, 20, 30, 40, 50]
-
-
-def parse_log_level(value: str | Literal[20]) -> LogLevels:
-    if isinstance(value, int):
-        return value
-
-    value = value.strip().upper()
-    match value:
-        case "" | "NOTSET":
-            return logging.NOTSET
-        case "DEBUG":
-            return logging.DEBUG
-        case "INFO":
-            return logging.INFO
-        case "WARN" | "WARNING":
-            return logging.WARN
-        case "ERROR":
-            return logging.ERROR
-        case "FATAL" | "CRITICAL":
-            return logging.FATAL
-        case n:
-            try:
-                return cast(LogLevels, int(n))
-            except ValueError:
-                raise typer.BadParameter(
-                    "log level must be a valid name or number for a level in `logging`"
-                )
-
 
 @app.callback()
 def app_callback(
-    log_level: Annotated[
-        LogLevels,
+    level: Annotated[
+        Level,
         typer.Option(
             envvar="ADG_LOG_LEVEL",
-            parser=parse_log_level,
-            help="Set level for logging module. Accepts level names or integers.",
+            parser=parse_level,
+            help="Minimum log level, as understood by loguru.",
         ),
-    ] = 20,
+    ] = "INFO",
     _version: Annotated[
         bool | None, VersionAnnotation(CoreVersion, AppVersion, OdysseeVersion)
     ] = None,
 ):
-    logging.basicConfig(level=log_level)
+    configure_logger(level)
 
 
 @app.command(help="Generates the L'Odyssée deck.")
@@ -77,7 +50,9 @@ def odyssee(
     generate_package(copy_input_text_to_clipboard=copy)
 
 
-def parse_upper_bound(value: str):
+def parse_upper_bound(value: str | int):
+    if isinstance(value, int):
+        return value
     lowered = value.strip().lower()
     if lowered == "basic":
         return 128

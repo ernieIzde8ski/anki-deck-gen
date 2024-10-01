@@ -6,6 +6,8 @@ __all__ = [
     "TARGET",
     "BaseConfig",
     "BaseModel",
+    "FileModel",
+    "MutMapDefaultView",
     "OptionalKey",
     "RequiredKey",
     "StrMixin",
@@ -17,6 +19,8 @@ __all__ = [
 
 from .base_model import BaseConfig, BaseModel
 from .dirs import MEDIA, ROOT, TARGET, media, target
+from .file_model import FileModel
+from .mut_map_default_view import MutMapDefaultView
 from .strtools import OptionalKey, RequiredKey, StrMixin, indent
 from .version import __version__
 

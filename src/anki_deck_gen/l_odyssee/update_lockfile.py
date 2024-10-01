@@ -1,96 +1,87 @@
-import logging
 from pathlib import Path
 
 import pyperclip
+import typer
+from loguru import logger
 
 from .cached_note import CachedNote
-from .lockfile import Lockfile
+from .lockfile import LOCKFILE_PATH, Lockfile, RootLockfile
 from .required_input import required_input
 
-__all__ = ["prompt_for_updated_root_lockfile"]
+__all__ = ["read_and_update_lockfile"]
 
 
 def prompt_update_relative_lockfile(
-    old: Lockfile, relative_directory: Path, copy_input_text_to_clipboard: bool
-):
-    """Updates a given lockfile, specified to be relative to a specific directory, from prompted input."""
+    lockfile: Lockfile, relative_directory: Path, copy_input_text_to_clipboard: bool
+) -> bool:
+    """
+    Updates a given (child?) lockfile, specified to be
+    relative to a specific directory, using prompted input.
+    """
+    updated = False
 
     for file in relative_directory.iterdir():
         if file.is_dir():
-            previously_present = file.name in old.children
-            if not previously_present:
-                old.children[file.name] = Lockfile()
-
-            sub_old = old.children[file.name]
-            sub_dir = relative_directory / file
-            sub_new = prompt_update_relative_lockfile(
-                sub_old, sub_dir, copy_input_text_to_clipboard
+            child = lockfile.children_view[file.name]
+            subdir = relative_directory / file
+            child_updated = prompt_update_relative_lockfile(
+                child, subdir, copy_input_text_to_clipboard
             )
-            if sub_new.notes:
-                sub_new.maybe_deck_ids = sub_old.deck_ids
-            new.children[file.name] = sub_new
+            updated = updated or child_updated
         elif file.suffix == ".mp3":
-            front_text = file.name.removesuffix("".join(file.suffixes))
-            if front_text in old.notes:
-                new.notes[front_text] = old.notes[front_text]
+            card_name = file.name.removesuffix("".join(file.suffixes))
+
+            if card_name in lockfile.notes:
+                continue
+
+            if copy_input_text_to_clipboard:
+                pyperclip.copy(card_name)
+
+            print(f"Front: {card_name}")
+            back = required_input("Back:  ")
+
+            if back == "NULL":
+                note = None
+                logger.debug("Skipping file: {}", file)
             else:
-                if copy_input_text_to_clipboard:
-                    pyperclip.copy(front_text)
-                print(f"Front: {front_text}")
-                back = required_input("Back:  ")
-                if back == "NULL":
-                    note = None
-                    logging.debug("Skipping file.")
-                else:
-                    note = CachedNote(front=None, back=back)
-                print()
-                new.notes[front_text] = old.notes[front_text] = note
+                note = CachedNote(front=None, back=back)
 
-    return new
+            lockfile.notes[card_name] = note
+            updated = True
+
+            print()
+
+    return updated
 
 
-def print_deck_ids(lockfile: Lockfile):
-    if lockfile.maybe_deck_ids:
-        logging.debug("\t%s", lockfile.maybe_deck_ids)
-    for child in lockfile.children.values():
-        print_deck_ids(child)
-
-
-def prompt_for_updated_root_lockfile(
+def read_and_update_lockfile(
     root_audio_directory: Path, copy_input_text_to_clipboard: bool
-) -> Lockfile:
+):
     """
-    Gets a lockfile, prompts for new keys, saves to disk,
-    and returns a lockfile with verified files.
+    Reads the lockfile from disk, updates said given
+    lockfile with any new changes in the audio directory,
+    and saves to disk if any changes occurred.
     """
 
-    logging.debug("Reading lockfile.")
-    disk_lockfile = Lockfile.read_from_file()
-    """Lockfile possibly containing deleted items."""
+    logger.debug("Reading lockfile.")
+    lockfile = RootLockfile.read_from_file(LOCKFILE_PATH)
 
-    logging.debug("deck ids of disk_lockfile:")
-    print_deck_ids(disk_lockfile)
+    updated = False
 
     try:
-        logging.debug("Ensuring lockfile is up to date.")
-        new_lockfile = prompt_update_relative_lockfile(
-            disk_lockfile, root_audio_directory, copy_input_text_to_clipboard
+        logger.debug("Ensuring lockfile is up to date.")
+        updated = prompt_update_relative_lockfile(
+            lockfile, root_audio_directory, copy_input_text_to_clipboard
         )
-        """Lockfile only with the mp3s that definitely exist."""
-        logging.debug("deck ids of new_lockfile:")
-        print_deck_ids(new_lockfile)
     except EOFError:
+        updated = True
         print()
-        logging.info("Saving lockfile")
-        disk_lockfile.save_to_file()
-        raise
+        raise typer.Exit()
+    finally:
+        if updated:
+            logger.info("Saving lockfile.")
+            lockfile.save_to_file()
+        else:
+            logger.info("No changes to lockfile.")
 
-    # if the user was prompted,
-    # then we can say something pro8a8ly changed
-    if required_input.is_notified:
-        logging.info("Updating lockfile")
-        disk_lockfile.save_to_file()
-    else:
-        logging.debug("No new entries for lockfile")
-    # returning only the lockfile filtered by existing media
-    return new_lockfile
+    return lockfile

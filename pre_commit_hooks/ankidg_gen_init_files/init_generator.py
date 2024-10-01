@@ -61,9 +61,13 @@ class InitGenerator:
         import_module_names = sorted(import_module_data, key=sort_key)
 
         for mod_name in import_module_names:
+            import_values = sorted(import_module_data[mod_name], key=sort_key)
+
+            if not import_values:
+                continue
+
             export_names.extend(import_module_data[mod_name])
 
-            import_values = sorted(import_module_data[mod_name], key=sort_key)
             import_from = f"from .{mod_name} import " + ", ".join(import_values)
             import_froms.append(import_from)
 

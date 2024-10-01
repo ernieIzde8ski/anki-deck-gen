@@ -1,9 +1,10 @@
-# Packages needed for tooling
+# Packages needed for development tooling
 black>=24.8.0
 pre-commit>=3.7.1
 pytest>=8.3.3
+basedpyright>=1.18.2
+Jinja2>=3.1.4
 
 # Packages needed for packaging
 setuptools>=73.0.1
-twine>=5.1.1
 build>=1.2.1

@@ -1,9 +1,9 @@
-### GEN-INIT: IGNORE ###
+__all__ = []
 
-import logging
 from pathlib import Path
 from typing import cast
 
+from loguru import logger
 from typing_extensions import Iterable
 
 from ankidg_core import BaseModel
@@ -24,14 +24,14 @@ class Metadata(BaseModel):
         if self.id is not None:
             return self.id
 
-        logging.warning("Missing model ID!")
+        logger.warning("Missing model ID!")
         self.id = random_id()
 
         path = dir / "metadata.json"
         with open(path, "w+") as file:
             data = self.model_dump_json(indent=2, exclude_defaults=True)
             n = file.write(data)
-            print("Wrote", n, "chars to", path)
+            logger.info("Wrote", n, "chars to", path)
 
         return self.id
 
@@ -43,17 +43,17 @@ class Metadata(BaseModel):
             afmt_path = dir / "afmt.html"
 
             if not qfmt_path.exists():
-                logging.warning("missing path: %s", qfmt_path)
+                logger.warning("missing path: {}", qfmt_path)
             elif not afmt_path.exists():
-                logging.warning("missing path: %s", afmt_path)
+                logger.warning("missing path: {}", afmt_path)
             else:
                 next = Template(
                     name=dir.name, qfmt=qfmt_path.read_text(), afmt=afmt_path.read_text()
                 )
                 if not next["qfmt"]:
-                    logging.warning("empty data read from %s", qfmt_path)
+                    logger.warning("empty data read from {}", qfmt_path)
                 if not next["afmt"]:
-                    logging.warning("empty data read from %s", afmt_path)
+                    logger.warning("empty data read from {}", afmt_path)
                 yield next
 
     def resolve_css(self, dir: Path, /) -> str:

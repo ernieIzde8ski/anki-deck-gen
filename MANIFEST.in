@@ -1,3 +1,4 @@
 include src/*/py.typed
 include requirements.txt
+include requirements-*.txt
 include media/

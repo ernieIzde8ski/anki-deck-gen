@@ -24,7 +24,7 @@ repos:
         language: python
         types: [python]
         require_serial: true
-        additional_dependencies: ['genanki>=0.13.1', 'loguru>=0.7.2', 'pydantic>=2.8.2', 'typer>=0.12.5', 'pyperclip>=1.9.0', 'black>=24.8.0', 'pre-commit>=3.7.1', 'pytest>=8.3.3', 'basedpyright>=1.18.2', 'Jinja2>=3.1.4', 'setuptools>=73.0.1', 'build>=1.2.1']
+        additional_dependencies: {{ full_requirements }}
       # shoutout to https://github.com/RobertCraigie/pyright-python
       - id: pyright
         name: pyright
@@ -34,13 +34,13 @@ repos:
         "types_or": [python]
         require_serial: true
         minimum_pre_commit_version: "2.9.2"
-        additional_dependencies: ['genanki>=0.13.1', 'loguru>=0.7.2', 'pydantic>=2.8.2', 'typer>=0.12.5', 'pyperclip>=1.9.0', 'black>=24.8.0', 'pre-commit>=3.7.1', 'pytest>=8.3.3', 'basedpyright>=1.18.2', 'Jinja2>=3.1.4', 'setuptools>=73.0.1', 'build>=1.2.1']
+        additional_dependencies: {{ full_requirements }}
       - id: pytest
         name: pytest
         entry: pytest
         language: python
         pass_filenames: false
-        additional_dependencies: ['genanki>=0.13.1', 'loguru>=0.7.2', 'pydantic>=2.8.2', 'typer>=0.12.5', 'pyperclip>=1.9.0', 'black>=24.8.0', 'pre-commit>=3.7.1', 'pytest>=8.3.3', 'basedpyright>=1.18.2', 'Jinja2>=3.1.4', 'setuptools>=73.0.1', 'build>=1.2.1']
+        additional_dependencies: {{ full_requirements }}
   - repo: https://github.com/psf/black
     rev: "24.8.0"
     hooks:

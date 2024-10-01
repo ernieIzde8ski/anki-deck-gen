@@ -1,17 +1,18 @@
-import logging
 from pathlib import Path
+
+from loguru import logger
 
 from ankidg_core import media, target
 from genanki_ext import (
     REVERSED_WITH_FRONT_MEDIA_AND_TEXT_INPUT,
     REVERSED_WITH_MEDIA_IN_FRONT,
-    Deck,
-    Note,
-    Package,
 )
+from genanki_ext import LoggedDeck as Deck
+from genanki_ext import LoggedPackage as Package
+from genanki_ext import Note
 
 from .lockfile import Lockfile
-from .update_lockfile import prompt_for_updated_root_lockfile
+from .update_lockfile import read_and_update_lockfile
 
 __all__ = ["generate_package"]
 
@@ -42,8 +43,15 @@ def generate_decks(
         for fp, cached_note in lockfile.notes.items():
             if cached_note is None:
                 continue
-            filename = f"{fp}.mp3"
-            fields = [f"[sound:{filename}]", cached_note.front or fp, cached_note.back]
+
+            path = relative_directory / f"{fp}.mp3"
+            if path.exists():
+                media_files.append(path)
+            else:
+                logger.warning(f"Path does not exist:\n\t{path}")
+                continue
+
+            fields = [f"[sound:{path.name}]", cached_note.front or fp, cached_note.back]
 
             normal_note = Note(
                 model=REVERSED_WITH_MEDIA_IN_FRONT, fields=fields, tags=["normal"]
@@ -57,29 +65,32 @@ def generate_decks(
             )
             hard_deck.add_note(hard_note)
 
-        logging.info("Adding decks:")
-        for deck in (normal_deck, hard_deck):
+        new_decks = (normal_deck, hard_deck)
+        logger.info(
+            "Adding decks:\n\t{}",
+            "\n\t".join(f"{deck.deck_id}, {deck.name}" for deck in new_decks),
+        )
+
+        for deck in new_decks:
             decks.append(deck)
-            logging.info("\t%d, %s", deck.deck_id, deck.name)
 
     return (decks, media_files)
 
 
 def generate_package(copy_input_text_to_clipboard: bool) -> None:
-    logging.basicConfig(level=logging.DEBUG)
-
-    lockfile = prompt_for_updated_root_lockfile(
+    lockfile = read_and_update_lockfile(
         root_audio_directory=AUDIO_DIRECTORY,
         copy_input_text_to_clipboard=copy_input_text_to_clipboard,
     )
 
-    logging.debug("Generating package")
+    logger.debug("Generating package")
     decks, media_files = generate_decks(
         name="L'Odyssée (TTS Quebecois)",
         lockfile=lockfile,
         relative_directory=AUDIO_DIRECTORY,
     )
     package = Package(decks, media_files=media_files)
+    package.log_decks()
     target_file = target("l_odyssee.apkg")
     package.write_to_file(target_file)
-    logging.debug(f"Wrote package to file: {target_file}")
+    logger.debug(f"Wrote package to file: {target_file}")

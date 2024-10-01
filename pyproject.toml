@@ -46,6 +46,7 @@ where = ["src", "pre_commit_hooks"]
 [project.scripts]
 anki-deck-gen = "anki_deck_gen.app:app"
 "adg.gen-init-files" = "ankidg_gen_init_files.app:app"
+"adg.update-templates" = "ankidg_update_templates.app:app"
 
 [tool.setuptools.dynamic]
 dependencies = { file = "requirements.txt" }
