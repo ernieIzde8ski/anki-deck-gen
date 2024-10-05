@@ -1,3 +1,4 @@
+import re
 import unicodedata
 from pathlib import Path
 
@@ -14,6 +15,9 @@ ASCII_DATA_JSON_PATH: Path = media() / "ascii-data.json"
 Map = dict[int, tuple[str, str]]
 MapAdapter = TypeAdapter(Map)
 
+UPPERCASE_PATTERN = re.compile(r"^LATIN CAPITAL LETTER (\w)")
+LOWERCASE_PATTERN = re.compile(r"^LATIN SMALL LETTER (\w)")
+
 
 class AsciiData(BaseModel):
     deck_id: int
@@ -28,6 +32,8 @@ class AsciiData(BaseModel):
             code = chr(point)
             name = unicodedata.name(code, None)
             if name is not None:
+                name = UPPERCASE_PATTERN.sub(r"UPPERCASE \1", name)
+                name = LOWERCASE_PATTERN.sub(r"LOWERCASE \1", name)
                 return (repr(code), name)
             raise
 

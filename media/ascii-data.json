@@ -13,7 +13,7 @@
     "9": ["HT", "HORIZONTAL TAB"],
     "10": ["LF", "NL LINE FEED, NEW LINE"],
     "11": ["VT", "VERTICAL TAB"],
-    "12": ["FF", "NP FORM FEED, NEW PAGE"],
+    "12": ["FF", "FORM FEED, NEW PAGE"],
     "13": ["CR", "CARRIAGE RETURN"],
     "14": ["SO", "SHIFT OUT"],
     "15": ["SI", "SHIFT IN"],

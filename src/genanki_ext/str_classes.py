@@ -13,9 +13,11 @@ class Deck(genanki.Deck, StrMixin): ...
 
 
 class Note(genanki.Note, StrMixin):
+    __guid: LiteralString | None = None
+
     @property
     @override
-    def guid(self) -> LiteralString:  # pyright: ignore[reportIncompatibleMethodOverride]
+    def guid(self) -> LiteralString:
         """
         Mimics the behavior described by Anki.
 
@@ -32,9 +34,15 @@ class Note(genanki.Note, StrMixin):
         More information:
             <https://docs.ankiweb.net/importing/text-files.html?highlight=guid#guid-column>
         """
+        if self.__guid:
+            return self.__guid
         if self.fields:
             return genanki.guid_for(self.fields[1])
         return ""
+
+    @guid.setter
+    def guid(self, val: LiteralString) -> None:
+        self.__guid = val
 
 
 class Model(genanki.Model, StrMixin): ...

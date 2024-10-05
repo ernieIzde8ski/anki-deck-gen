@@ -1,11 +1,7 @@
 from .model_data import read_model
 from .str_classes import Model
 
-__all__ = [
-    "REVERSED_WITH_MEDIA_IN_FRONT",
-    "REVERSED_WITH_FRONT_MEDIA_AND_TEXT_INPUT",
-    "CLOZE_WITH_ID",
-]
+__all__ = ["REVERSED_WITH_MEDIA_IN_FRONT", "REVERSED_WITH_FRONT_MEDIA_AND_TEXT_INPUT"]
 
 
 REVERSED_WITH_MEDIA_IN_FRONT = Model(
@@ -32,25 +28,3 @@ REVERSED_WITH_MEDIA_IN_FRONT = Model(
 )
 
 REVERSED_WITH_FRONT_MEDIA_AND_TEXT_INPUT = read_model("reversed_front_media_text_input")
-
-# Documentation suggests this approach over using a GUID:
-# https://docs.ankiweb.net/importing/text-files.html#guid-column
-CLOZE_WITH_ID = Model(
-    2044012515,
-    "Cloze (anki-deck-gen)",
-    model_type=Model.CLOZE,
-    fields=[
-        {"name": "Deck ID"},
-        {"name": "Text", "font": "Arial"},
-        {"name": "Back Extra", "font": "Arial"},
-    ],
-    templates=[
-        {
-            "name": "Cloze",
-            "qfmt": "{{cloze:Text}}",
-            "afmt": "{{cloze:Text}}<br>\n{{Back Extra}}",
-        }
-    ],
-    css=".card {\n font-family: arial;\n font-size: 20px;\n text-align: center;\n color: black;\n background-color: white;\n}\n\n"
-    ".cloze {\n font-weight: bold;\n color: blue;\n}\n.nightMode .cloze {\n color: lightblue;\n}",
-)
