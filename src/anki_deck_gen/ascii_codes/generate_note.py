@@ -43,7 +43,7 @@ def _generate_int_repr(num: int):
 
 
 def _generate_hex_repr(num: int) -> XmlTag:
-    tags: list[str | XmlTag] = []
+    tags: list[str | XmlTag] = ["0x"]
 
     for char in f"{num:02X}":
         color = _colors[char]
